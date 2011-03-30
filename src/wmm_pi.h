@@ -99,9 +99,7 @@ public:
 	WMMtype_Date UserDate;
 	WMMtype_GeoMagneticElements GeoMagneticElements;
 	WMMtype_Geoid Geoid;
-      char ans[20];
 	wxString filename;
-	int NumTerms, Flag;
 
 private:
       wxWindow         *m_parent_window;
