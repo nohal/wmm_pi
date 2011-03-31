@@ -62,7 +62,6 @@ ENDIF(WIN32)
 INCLUDE(${wxWidgets_USE_FILE})
 
 FIND_PACKAGE(Gettext REQUIRED)
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/plugins/wmm_pi/cmake/Modules/")
 
 # For convenience we define the sources as a variable. You can add 
 # header files and cpp/c files and CMake will sort them out
@@ -75,6 +74,8 @@ SET(SRC_WMM
             src/icons.cpp
 	    src/WMMHeader.h
 	    src/WMM_SubLibrary.c
+	    src/WmmUIDialog.h
+	    src/WmmUIDialog.cpp
 	)
 ADD_LIBRARY(${PACKAGE_NAME} SHARED ${SRC_WMM})
 
