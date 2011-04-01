@@ -35,6 +35,8 @@
   #include "wx/wx.h"
 #endif //precompiled headers
 
+#include <wx/fileconf.h>
+
 #define     PLUGIN_VERSION_MAJOR    0
 #define     PLUGIN_VERSION_MINOR    1
 
@@ -45,6 +47,7 @@
 
 #include "WMMHeader.h"
 #include "WMM_SubLibrary.c"
+#include "WmmUIDialog.h"
 
 
 //----------------------------------------------------------------------------------------------------------
@@ -52,8 +55,6 @@
 //----------------------------------------------------------------------------------------------------------
 
 #define WMM_TOOL_POSITION    -1          // Request default positioning of toolbar tool
-
-class WmmUIDialog;
 
 class wmm_pi : public opencpn_plugin
 {
@@ -75,10 +76,10 @@ public:
 
 //    The required override PlugIn Methods
       void SetCursorLatLon(double lat, double lon);
-
-      void SetDefaults(void);
+      void SetPositionFix(PlugIn_Position_Fix &pfix);
 
       int GetToolbarToolCount(void);
+      void ShowPreferencesDialog( wxWindow* parent );
 
       void OnToolbarToolCallback(int id);
       
@@ -86,8 +87,6 @@ public:
 //    Other public methods
       void SetWmmDialogX    (int x){ m_wmm_dialog_x = x;};
       void SetWmmDialogY    (int x){ m_wmm_dialog_y = x;}
-      void SetWmmDialogSizeX(int x){ m_wmm_dialog_sx = x;}
-      void SetWmmDialogSizeY(int x){ m_wmm_dialog_sy = x;}
 
       void OnWmmDialogClose();
 
@@ -102,16 +101,26 @@ public:
 	wxString filename;
 
 private:
+      wxFileConfig     *m_pconfig;
       wxWindow         *m_parent_window;
+      bool              LoadConfig(void);
+      bool              SaveConfig(void);
 
-      WmmUIDialog     *m_WmmDialog;
+      WmmUIDialog      *m_pWmmDialog;
 
-      int              m_wmm_dialog_x, m_wmm_dialog_y;
-      int              m_wmm_dialog_sx, m_wmm_dialog_sy;
-};
+      int               m_wmm_dialog_x, m_wmm_dialog_y;
+      int               m_display_width, m_display_height;
+      int               m_iViewType;
+      int               m_bShowAtCursor;
+      int               m_iOpacity;
 
-class WmmUIDialog
-{
+      int               m_leftclick_tool_id;
+
+      wxString          AngleToText(double angle);
+
+      void              RearangeWindow();
+      wxString          m_wmm_dir;
+      bool              m_buseable;
 };
 
 #endif

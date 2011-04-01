@@ -402,5 +402,7 @@ char *trim(char *str);
 void assignheadervalues(WMMtype_MagneticModel *model, char values[][MAXLINELENGTH]);
 int WMM_readMagneticModel_ISO(char *filename, WMMtype_MagneticModel *magneticmodels[],int array_size);
 
+char geoiddatapath[1024];
+
 
 #endif /*WMMHEADER_H*/
