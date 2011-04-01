@@ -112,7 +112,7 @@ int wmm_pi::Init(void)
       strncpy(cstring, (const char*)filename.mb_str(wxConvUTF8), 1023);
       if (0 == WMM_readMagneticModel(cstring, MagneticModel))
       {
-            wxLogMessage(wxString::Format(_T("Error: WMM model data file %s can't be loaded."), filename));
+            wxLogMessage(wxString::Format(_T("Error: WMM model data file %s can't be loaded."), filename.c_str()));
             m_buseable = false;
       }
 
@@ -120,7 +120,7 @@ int wmm_pi::Init(void)
       strncpy(geoiddatapath, (const char*)filename.mb_str(wxConvUTF8), 1023);
 	if (0 == WMM_InitializeGeoid(&Geoid))    /* Read the Geoid file */
       {
-            wxLogMessage(wxString::Format(_T("Error: WMM model data file %s can't be loaded."), filename));
+            wxLogMessage(wxString::Format(_T("Error: WMM model data file %s can't be loaded."), filename.c_str()));
             m_buseable = false;
       }
 	//WMM_GeomagIntroduction(MagneticModel);  /* Print out the WMM introduction */
@@ -291,7 +291,7 @@ void wmm_pi::SetCursorLatLon(double lat, double lon)
       m_pWmmDialog->m_tcX->SetValue(wxString::Format(_T("%-9.1lf"), GeoMagneticElements.X));
       m_pWmmDialog->m_tcY->SetValue(wxString::Format(_T("%-9.1lf"), GeoMagneticElements.Y));
       m_pWmmDialog->m_tcZ->SetValue(wxString::Format(_T("%-9.1lf"), GeoMagneticElements.Z));
-      m_pWmmDialog->m_tcD->SetValue(wxString::Format(_T("%-5.1lf (%s)"), GeoMagneticElements.Decl, AngleToText(GeoMagneticElements.Decl)));
+      m_pWmmDialog->m_tcD->SetValue(wxString::Format(_T("%-5.1lf (%s)"), GeoMagneticElements.Decl, AngleToText(GeoMagneticElements.Decl).c_str()));
       m_pWmmDialog->m_tcI->SetValue(wxString::Format(_T("%-5.1lf"), GeoMagneticElements.Incl));
 }
 
@@ -323,7 +323,7 @@ void wmm_pi::SetPositionFix(PlugIn_Position_Fix &pfix)
       m_pWmmDialog->m_tbX->SetValue(wxString::Format(_T("%-9.1lf"), GeoMagneticElements.X));
       m_pWmmDialog->m_tbY->SetValue(wxString::Format(_T("%-9.1lf"), GeoMagneticElements.Y));
       m_pWmmDialog->m_tbZ->SetValue(wxString::Format(_T("%-9.1lf"), GeoMagneticElements.Z));
-      m_pWmmDialog->m_tbD->SetValue(wxString::Format(_T("%-5.1lf (%s)"), GeoMagneticElements.Decl, AngleToText(GeoMagneticElements.Decl)));
+      m_pWmmDialog->m_tbD->SetValue(wxString::Format(_T("%-5.1lf (%s)"), GeoMagneticElements.Decl, AngleToText(GeoMagneticElements.Decl).c_str()));
       m_pWmmDialog->m_tbI->SetValue(wxString::Format(_T("%-5.1lf"), GeoMagneticElements.Incl));
 }
 
@@ -332,9 +332,9 @@ wxString wmm_pi::AngleToText(double angle)
       int deg = abs(angle);
       int min = (abs(angle) - deg) * 60;
       if (angle < 0)
-            return wxString::Format(_("%u°%u' W"), deg, min);
+            return wxString::Format(_("%u\u00B0%u' W"), deg, min);
       else
-            return wxString::Format(_("%u°%u' E"), deg, min);
+            return wxString::Format(_("%u\u00B0%u' E"), deg, min);
 }
 
 bool wmm_pi::LoadConfig(void)
