@@ -138,7 +138,7 @@ int wmm_pi::Init(void)
 	        WANTS_NMEA_EVENTS         |
               WANTS_PREFERENCES         |
               WANTS_CONFIG
-           );      
+           );
 }
 
 bool wmm_pi::DeInit(void)
@@ -156,7 +156,7 @@ bool wmm_pi::DeInit(void)
       }
       SaveConfig();
       WMM_FreeMagneticModelMemory(MagneticModel);
-      WMM_FreeMagneticModelMemory(TimedMagneticModel);     
+      WMM_FreeMagneticModelMemory(TimedMagneticModel);
 
       if (Geoid.GeoidHeightBuffer)
       {
@@ -229,7 +229,7 @@ void wmm_pi::RearangeWindow()
             m_pWmmDialog->sbSboat->Show(m_pWmmDialog->gSboat, true, true);
       }
 
-      if (!m_bShowAtCursor) 
+      if (!m_bShowAtCursor)
       {
             m_pWmmDialog->bSframe->Hide(m_pWmmDialog->sbScursor, true);
       }
@@ -237,7 +237,7 @@ void wmm_pi::RearangeWindow()
       {
             m_pWmmDialog->bSframe->Show(m_pWmmDialog->sbScursor, true, true);
             if (m_iViewType == 1)
-                  m_pWmmDialog->sbScursor->Hide(m_pWmmDialog->gScursor, true);            
+                  m_pWmmDialog->sbScursor->Hide(m_pWmmDialog->gScursor, true);
       }
 
       m_pWmmDialog->Fit();
@@ -330,7 +330,7 @@ void wmm_pi::SetPositionFix(PlugIn_Position_Fix &pfix)
 wxString wmm_pi::AngleToText(double angle)
 {
       int deg = abs(angle);
-      int min = (abs(angle) - deg) * 60;
+      int min = (fabs(angle) - deg) * 60;
       if (angle < 0)
             return wxString::Format(_("%u\u00B0%u' W"), deg, min);
       else
