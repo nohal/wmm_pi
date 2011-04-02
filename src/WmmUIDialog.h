@@ -54,7 +54,7 @@ class WmmUIDialog : public wxDialog
 	public:
 		wxBoxSizer* bSframe;
 		wxStaticBoxSizer* sbSboat;
-		wxGridSizer* gSboat;
+		wxFlexGridSizer* gSboat;
 		wxTextCtrl* m_tbF;
 		wxTextCtrl* m_tbH;
 		wxTextCtrl* m_tbX;
@@ -63,7 +63,7 @@ class WmmUIDialog : public wxDialog
 		wxTextCtrl* m_tbI;
 		wxTextCtrl* m_tbD;
 		wxStaticBoxSizer* sbScursor;
-		wxGridSizer* gScursor;
+		wxFlexGridSizer* gScursor;
 		wxTextCtrl* m_tcF;
 		wxTextCtrl* m_tcH;
 		wxTextCtrl* m_tcX;
@@ -72,7 +72,7 @@ class WmmUIDialog : public wxDialog
 		wxTextCtrl* m_tcI;
 		wxTextCtrl* m_tcD;
 		
-		WmmUIDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("WMM"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 240,415 ), long style = wxCAPTION|wxDEFAULT_DIALOG_STYLE|wxSTAY_ON_TOP|wxTAB_TRAVERSAL ); 
+		WmmUIDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("WMM"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 250,415 ), long style = wxCAPTION|wxDEFAULT_DIALOG_STYLE|wxSTAY_ON_TOP|wxTAB_TRAVERSAL ); 
 		~WmmUIDialog();
 	
 };
