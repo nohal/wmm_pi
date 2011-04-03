@@ -76,6 +76,7 @@ SET(SRC_WMM
 	    src/WMM_SubLibrary.c
 	    src/WmmUIDialog.h
 	    src/WmmUIDialog.cpp
+	    src/WMM_COF.h
 	)
 ADD_LIBRARY(${PACKAGE_NAME} SHARED ${SRC_WMM})
 
