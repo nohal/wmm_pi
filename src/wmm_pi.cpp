@@ -217,6 +217,8 @@ int wmm_pi::GetToolbarToolCount(void)
 
 void wmm_pi::RearangeWindow()
 {
+      if (NULL == m_pWmmDialog)
+            return;
       if (m_iViewType == 1)
       {
             m_pWmmDialog->sbScursor->Hide(m_pWmmDialog->gScursor, true);
