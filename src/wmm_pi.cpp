@@ -112,17 +112,17 @@ int wmm_pi::Init(void)
       strncpy(cstring, (const char*)filename.mb_str(wxConvUTF8), 1023);
       if (0 == WMM_readMagneticModel(cstring, MagneticModel))
       {
-            wxLogMessage(wxString::Format(_T("Error: WMM model data file %s can't be loaded."), filename.c_str()));
-            m_buseable = false;
+            wxLogMessage(wxString::Format(_T("Warning: WMM model data file %s can't be loaded, using the bundled data."), filename.c_str()));
+            WMM_setupMagneticModel(wmm_cof_data, MagneticModel);
       }
 
-      filename = m_wmm_dir + _T("/EGM9615.BIN");
-      strncpy(geoiddatapath, (const char*)filename.mb_str(wxConvUTF8), 1023);
-	if (0 == WMM_InitializeGeoid(&Geoid))    /* Read the Geoid file */
-      {
-            wxLogMessage(wxString::Format(_T("Error: WMM model data file %s can't be loaded."), filename.c_str()));
-            m_buseable = false;
-      }
+ //     filename = m_wmm_dir + _T("/EGM9615.BIN");
+ //     strncpy(geoiddatapath, (const char*)filename.mb_str(wxConvUTF8), 1023);
+ //     if (FALSE == WMM_InitializeGeoid(&Geoid))    /* Read the Geoid file */
+ //     {
+ //           wxLogMessage(wxString::Format(_T("Warning: WMM model data file %s can't be loaded. Switching off the geoid calculations. The accuracy will be reduced"), filename.c_str()));
+ //           m_busegeoid = false;
+ //     }
 	//WMM_GeomagIntroduction(MagneticModel);  /* Print out the WMM introduction */
 
       //    This PlugIn needs a toolbar icon, so request its insertion
@@ -158,11 +158,11 @@ bool wmm_pi::DeInit(void)
       WMM_FreeMagneticModelMemory(MagneticModel);
       WMM_FreeMagneticModelMemory(TimedMagneticModel);
 
-      if (Geoid.GeoidHeightBuffer)
+      /*if (Geoid.GeoidHeightBuffer)
       {
             free(Geoid.GeoidHeightBuffer);
             Geoid.GeoidHeightBuffer = NULL;
-      }
+      }*/
       return true;
 }
 
@@ -205,7 +205,6 @@ wxString wmm_pi::GetShortDescription()
 wxString wmm_pi::GetLongDescription()
 {
       return _("World Magnetic Model PlugIn for OpenCPN\n\
-Conquers the world\n\n\
 Implements the NOAA World Magnetic Model\n\
 More information: http://www.ngdc.noaa.gov/geomag/WMM/\n");
 }
@@ -407,3 +406,69 @@ void wmm_pi::ShowPreferencesDialog( wxWindow* parent )
             SaveConfig();
       }
 }
+
+
+/*!
+ * \brief
+ * sets up the magnetic model with our bundled data.
+ * 
+ * \param data
+ * string containing the coefitient data
+ * 
+ * \param MagneticModel
+ * Magnetic model
+ * 
+ * \returns
+ * true on success
+ * 
+ * 
+ * This is a modification of WMM_readMagneticModel() to set up the model in case the data files are missing.
+ */
+int WMM_setupMagneticModel(char *data, WMMtype_MagneticModel * MagneticModel)
+{
+	char c_str[81], c_new[5];   /*these strings are used to read a line from coefficient file*/
+	int i, icomp, m, n, EOF_Flag = 0, index;
+	double epoch, gnm, hnm, dgnm, dhnm;
+      char *c_tmp;
+
+	MagneticModel->Main_Field_Coeff_H[0] = 0.0;
+	MagneticModel->Main_Field_Coeff_G[0] = 0.0;
+	MagneticModel->Secular_Var_Coeff_H[0] = 0.0;
+	MagneticModel->Secular_Var_Coeff_G[0] = 0.0;
+
+	c_tmp = strtok(data, "\n");
+      strncpy(c_str, c_tmp, 81);
+	sscanf(c_str,"%lf%s",&epoch, MagneticModel->ModelName);
+	MagneticModel->epoch = epoch;
+	while (EOF_Flag == 0)
+	{
+            c_tmp = strtok(NULL, "\n");
+            strncpy(c_str, c_tmp, 81);
+		/* CHECK FOR LAST LINE IN FILE */
+		for (i=0; i<4 && (c_str[i] != '\0'); i++)
+		{
+			c_new[i] = c_str[i];
+			c_new[i+1] = '\0';
+		}
+		icomp = strcmp("9999", c_new);
+		if (icomp == 0)
+		{
+			EOF_Flag = 1;
+			break;
+		}
+		/* END OF FILE NOT ENCOUNTERED, GET VALUES */
+		sscanf(c_str,"%d%d%lf%lf%lf%lf",&n,&m,&gnm,&hnm,&dgnm,&dhnm);
+		if (m <= n)
+		{
+			index = (n * (n + 1) / 2 + m);
+			MagneticModel->Main_Field_Coeff_G[index] = gnm;
+			MagneticModel->Secular_Var_Coeff_G[index] = dgnm;
+			MagneticModel->Main_Field_Coeff_H[index] = hnm;
+			MagneticModel->Secular_Var_Coeff_H[index] = dhnm;
+		}
+	}
+
+	return TRUE;
+} /*WMM_setupMagneticModel */
+
+

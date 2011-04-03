@@ -48,7 +48,7 @@
 #include "WMMHeader.h"
 #include "WMM_SubLibrary.c"
 #include "WmmUIDialog.h"
-
+#include "WMM_COF.h"
 
 //----------------------------------------------------------------------------------------------------------
 //    The PlugIn Class Definition
@@ -92,8 +92,8 @@ public:
 
 //    WMM Declarations
       WMMtype_MagneticModel *MagneticModel, *TimedMagneticModel;
-	WMMtype_Ellipsoid Ellip;
-	WMMtype_CoordSpherical CoordSpherical;
+      WMMtype_Ellipsoid Ellip;
+      WMMtype_CoordSpherical CoordSpherical;
 	WMMtype_CoordGeodetic CoordGeodetic;
 	WMMtype_Date UserDate;
 	WMMtype_GeoMagneticElements GeoMagneticElements;
@@ -111,7 +111,7 @@ private:
       int               m_wmm_dialog_x, m_wmm_dialog_y;
       int               m_display_width, m_display_height;
       int               m_iViewType;
-      int               m_bShowAtCursor;
+      bool              m_bShowAtCursor;
       int               m_iOpacity;
 
       int               m_leftclick_tool_id;
@@ -120,7 +120,9 @@ private:
 
       void              RearangeWindow();
       wxString          m_wmm_dir;
-      bool              m_buseable;
+      bool              m_buseable, m_busegeoid;
 };
+
+int WMM_setupMagneticModel(char *data, WMMtype_MagneticModel * MagneticModel);
 
 #endif
