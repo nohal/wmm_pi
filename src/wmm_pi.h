@@ -82,6 +82,9 @@ public:
       void ShowPreferencesDialog( wxWindow* parent );
 
       void OnToolbarToolCallback(int id);
+
+//    Optional plugin overrides
+      void SetColorScheme(PI_ColorScheme cs);
       
 
 //    Other public methods

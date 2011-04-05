@@ -215,6 +215,34 @@ int wmm_pi::GetToolbarToolCount(void)
       return 1;
 }
 
+void wmm_pi::SetColorScheme(PI_ColorScheme cs)
+{
+      if (NULL == m_pWmmDialog)
+            return;
+
+      wxColour cl;
+      GetGlobalColor(_T("DILG1"), &cl);
+      m_pWmmDialog->SetBackgroundColour(cl);
+
+      GetGlobalColor(_T("DILG2"), &cl);
+      m_pWmmDialog->m_tbD->SetBackgroundColour(cl);
+      m_pWmmDialog->m_tbF->SetBackgroundColour(cl);
+      m_pWmmDialog->m_tbH->SetBackgroundColour(cl);
+      m_pWmmDialog->m_tbI->SetBackgroundColour(cl);
+      m_pWmmDialog->m_tbX->SetBackgroundColour(cl);
+      m_pWmmDialog->m_tbY->SetBackgroundColour(cl);
+      m_pWmmDialog->m_tbZ->SetBackgroundColour(cl);
+      m_pWmmDialog->m_tcD->SetBackgroundColour(cl);
+      m_pWmmDialog->m_tcF->SetBackgroundColour(cl);
+      m_pWmmDialog->m_tcH->SetBackgroundColour(cl);
+      m_pWmmDialog->m_tcI->SetBackgroundColour(cl);
+      m_pWmmDialog->m_tcX->SetBackgroundColour(cl);
+      m_pWmmDialog->m_tcY->SetBackgroundColour(cl);
+      m_pWmmDialog->m_tcZ->SetBackgroundColour(cl);
+
+      m_pWmmDialog->Refresh(false);
+}
+
 void wmm_pi::RearangeWindow()
 {
       if (NULL == m_pWmmDialog)
@@ -240,6 +268,8 @@ void wmm_pi::RearangeWindow()
             if (m_iViewType == 1)
                   m_pWmmDialog->sbScursor->Hide(m_pWmmDialog->gScursor, true);
       }
+
+      SetColorScheme(PI_ColorScheme());
 
       m_pWmmDialog->Fit();
 
