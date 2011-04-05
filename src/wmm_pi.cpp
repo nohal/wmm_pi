@@ -206,7 +206,11 @@ wxString wmm_pi::GetLongDescription()
 {
       return _("World Magnetic Model PlugIn for OpenCPN\n\
 Implements the NOAA World Magnetic Model\n\
-More information: http://www.ngdc.noaa.gov/geomag/WMM/\n");
+More information: http://www.ngdc.noaa.gov/geomag/WMM/\n\
+The bundled WMM2010 model expires on December 31, 2014.\n\
+After then, if new version of the plugin will not be released\n\
+in time, get a new WMM.COF from NOAA and place it to the\n\
+location you can find in the OpenCPN logfile.");
 }
 
 
