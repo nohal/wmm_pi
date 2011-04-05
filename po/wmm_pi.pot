@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-04-01 19:21+0200\n"
+"POT-Creation-Date: 2011-04-05 10:31+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,110 +27,125 @@ msgstr ""
 #: src/wmm_pi.cpp:207
 msgid ""
 "World Magnetic Model PlugIn for OpenCPN\n"
-"Conquers the world\n"
-"\n"
 "Implements the NOAA World Magnetic Model\n"
 "More information: http://www.ngdc.noaa.gov/geomag/WMM/\n"
 msgstr ""
 
-#: src/wmm_pi.cpp:271 src/wmm_pi.cpp:304
+#: src/wmm_pi.cpp:302 src/wmm_pi.cpp:335
 msgid "Error, see log."
 msgstr ""
 
-#: src/wmm_pi.cpp:335
+#: src/wmm_pi.cpp:320 src/wmm_pi.cpp:321 src/wmm_pi.cpp:322 src/wmm_pi.cpp:323
+#: src/wmm_pi.cpp:324 src/wmm_pi.cpp:352 src/wmm_pi.cpp:353 src/wmm_pi.cpp:354
+#: src/wmm_pi.cpp:355 src/wmm_pi.cpp:356
+#, c-format
+msgid "%-9.1lf nT"
+msgstr ""
+
+#: src/wmm_pi.cpp:325
+#, c-format
+msgid "%-5.1lf\\u00B0 (%s)"
+msgstr ""
+
+#: src/wmm_pi.cpp:326
+#, c-format
+msgid "%-5.1lf\\u00B0"
+msgstr ""
+
+#: src/wmm_pi.cpp:366
 #, c-format
 msgid "%u\\u00B0%u' W"
 msgstr ""
 
-#: src/wmm_pi.cpp:337
+#: src/wmm_pi.cpp:368
 #, c-format
 msgid "%u\\u00B0%u' E"
 msgstr ""
 
-#: src/wmm_pi.cpp:392 src/WmmUIDialog.h:97
+#: src/wmm_pi.cpp:423 src/WmmUIDialog.h:97
 msgid "WMM Preferences"
 msgstr ""
 
-#: src/WmmUIDialog.cpp:18
+#: src/WmmUIDialog.cpp:19
 msgid "Boat"
 msgstr ""
 
-#: src/WmmUIDialog.cpp:22 src/WmmUIDialog.cpp:100
+#: src/WmmUIDialog.cpp:26 src/WmmUIDialog.cpp:112
 msgid "F"
 msgstr ""
 
-#: src/WmmUIDialog.cpp:24 src/WmmUIDialog.cpp:102
+#: src/WmmUIDialog.cpp:28 src/WmmUIDialog.cpp:114
 msgid "Total Intensity"
 msgstr ""
 
-#: src/WmmUIDialog.cpp:31 src/WmmUIDialog.cpp:109
+#: src/WmmUIDialog.cpp:35 src/WmmUIDialog.cpp:121
 msgid "H"
 msgstr ""
 
-#: src/WmmUIDialog.cpp:33 src/WmmUIDialog.cpp:111
+#: src/WmmUIDialog.cpp:37 src/WmmUIDialog.cpp:123
 msgid "Horizontal Intensity"
 msgstr ""
 
-#: src/WmmUIDialog.cpp:40 src/WmmUIDialog.cpp:118
+#: src/WmmUIDialog.cpp:44 src/WmmUIDialog.cpp:130
 msgid "X"
 msgstr ""
 
-#: src/WmmUIDialog.cpp:42 src/WmmUIDialog.cpp:120
+#: src/WmmUIDialog.cpp:46 src/WmmUIDialog.cpp:132
 msgid "North Component"
 msgstr ""
 
-#: src/WmmUIDialog.cpp:49 src/WmmUIDialog.cpp:127
+#: src/WmmUIDialog.cpp:53 src/WmmUIDialog.cpp:139
 msgid "Y"
 msgstr ""
 
-#: src/WmmUIDialog.cpp:51 src/WmmUIDialog.cpp:129
+#: src/WmmUIDialog.cpp:55 src/WmmUIDialog.cpp:141
 msgid "East Component"
 msgstr ""
 
-#: src/WmmUIDialog.cpp:58 src/WmmUIDialog.cpp:136
+#: src/WmmUIDialog.cpp:62 src/WmmUIDialog.cpp:148
 msgid "Z"
 msgstr ""
 
-#: src/WmmUIDialog.cpp:60 src/WmmUIDialog.cpp:138
+#: src/WmmUIDialog.cpp:64 src/WmmUIDialog.cpp:150
 msgid "Vertical Component"
 msgstr ""
 
-#: src/WmmUIDialog.cpp:67 src/WmmUIDialog.cpp:145
+#: src/WmmUIDialog.cpp:71 src/WmmUIDialog.cpp:157
 msgid "Incl"
 msgstr ""
 
-#: src/WmmUIDialog.cpp:69 src/WmmUIDialog.cpp:147
+#: src/WmmUIDialog.cpp:73 src/WmmUIDialog.cpp:159
 msgid "(DIP) - Geomagnetic Inclination "
 msgstr ""
 
-#: src/WmmUIDialog.cpp:81 src/WmmUIDialog.cpp:159
-msgid "Decl"
+#: src/WmmUIDialog.cpp:89 src/WmmUIDialog.cpp:175
+msgid "Vari"
 msgstr ""
 
-#: src/WmmUIDialog.cpp:83 src/WmmUIDialog.cpp:161
-msgid "D (DEC) - Geomagnetic Declination"
+#: src/WmmUIDialog.cpp:91 src/WmmUIDialog.cpp:177
+msgid "Magnetic Variation"
 msgstr ""
 
-#: src/WmmUIDialog.cpp:96
+#: src/WmmUIDialog.cpp:105
 msgid "Cursor"
 msgstr ""
 
-#: src/WmmUIDialog.cpp:191
+#: src/WmmUIDialog.cpp:208
 msgid "Extended"
 msgstr ""
 
-#: src/WmmUIDialog.cpp:191
-msgid "Declination only"
+#: src/WmmUIDialog.cpp:208
+msgid "Variation only"
 msgstr ""
 
-#: src/WmmUIDialog.cpp:193
+#: src/WmmUIDialog.cpp:210
 msgid "View"
 msgstr ""
 
-#: src/WmmUIDialog.cpp:197
+#: src/WmmUIDialog.cpp:214
 msgid "Show also data at cursor position"
 msgstr ""
 
-#: src/WmmUIDialog.cpp:201
+#: src/WmmUIDialog.cpp:218
 msgid "Window transparency"
 msgstr ""
