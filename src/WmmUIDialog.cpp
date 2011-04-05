@@ -205,10 +205,10 @@ WmmPrefsDialog::WmmPrefsDialog( wxWindow* parent, wxWindowID id, const wxString&
 	wxBoxSizer* bSizer2;
 	bSizer2 = new wxBoxSizer( wxVERTICAL );
 	
-	wxString m_rbViewTypeChoices[] = { _("Extended"), _("Declination only") };
+	wxString m_rbViewTypeChoices[] = { _("Extended"), _("Variation only") };
 	int m_rbViewTypeNChoices = sizeof( m_rbViewTypeChoices ) / sizeof( wxString );
 	m_rbViewType = new wxRadioBox( this, wxID_ANY, _("View"), wxDefaultPosition, wxDefaultSize, m_rbViewTypeNChoices, m_rbViewTypeChoices, 2, wxRA_SPECIFY_COLS );
-	m_rbViewType->SetSelection( 0 );
+	m_rbViewType->SetSelection( 1 );
 	bSizer2->Add( m_rbViewType, 0, wxALL|wxEXPAND, 5 );
 	
 	m_cbShowAtCursor = new wxCheckBox( this, wxID_ANY, _("Show also data at cursor position"), wxDefaultPosition, wxDefaultSize, 0 );

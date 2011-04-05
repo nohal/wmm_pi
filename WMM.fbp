@@ -1422,7 +1422,7 @@
                     <property name="border">0</property>
                     <property name="flag">wxEXPAND|wxFIXED_MINSIZE</property>
                     <property name="proportion">1</property>
-                    <object class="wxStaticBoxSizer" expanded="1">
+                    <object class="wxStaticBoxSizer" expanded="0">
                         <property name="id">wxID_ANY</property>
                         <property name="label">Cursor</property>
                         <property name="minimum_size"></property>
@@ -1430,11 +1430,11 @@
                         <property name="orient">wxVERTICAL</property>
                         <property name="permission">public</property>
                         <event name="OnUpdateUI"></event>
-                        <object class="sizeritem" expanded="1">
+                        <object class="sizeritem" expanded="0">
                             <property name="border">0</property>
                             <property name="flag">wxEXPAND|wxFIXED_MINSIZE</property>
                             <property name="proportion">1</property>
-                            <object class="wxFlexGridSizer" expanded="1">
+                            <object class="wxFlexGridSizer" expanded="0">
                                 <property name="cols">2</property>
                                 <property name="flexible_direction">wxBOTH</property>
                                 <property name="growablecols">1</property>
@@ -2516,11 +2516,11 @@
                                 </object>
                             </object>
                         </object>
-                        <object class="sizeritem" expanded="1">
+                        <object class="sizeritem" expanded="0">
                             <property name="border">0</property>
                             <property name="flag">wxEXPAND</property>
                             <property name="proportion">0</property>
-                            <object class="wxFlexGridSizer" expanded="1">
+                            <object class="wxFlexGridSizer" expanded="0">
                                 <property name="cols">2</property>
                                 <property name="flexible_direction">wxBOTH</property>
                                 <property name="growablecols">1</property>
@@ -2832,7 +2832,7 @@
                         <property name="caption"></property>
                         <property name="caption_visible">1</property>
                         <property name="center_pane">0</property>
-                        <property name="choices">&quot;Extended&quot; &quot;Declination only&quot;</property>
+                        <property name="choices">&quot;Extended&quot; &quot;Variation only&quot;</property>
                         <property name="close_button">1</property>
                         <property name="context_help"></property>
                         <property name="context_menu">1</property>
@@ -2867,7 +2867,7 @@
                         <property name="position"></property>
                         <property name="resize">Resizable</property>
                         <property name="row"></property>
-                        <property name="selection">0</property>
+                        <property name="selection">1</property>
                         <property name="show">1</property>
                         <property name="size"></property>
                         <property name="style">wxRA_SPECIFY_COLS</property>
