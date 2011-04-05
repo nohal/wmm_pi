@@ -72,7 +72,7 @@ class WmmUIDialog : public wxDialog
 		wxTextCtrl* m_tcI;
 		wxTextCtrl* m_tcD;
 		
-		WmmUIDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("WMM"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 250,415 ), long style = wxCAPTION|wxDEFAULT_DIALOG_STYLE|wxSTAY_ON_TOP|wxTAB_TRAVERSAL ); 
+		WmmUIDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("WMM"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 250,415 ), long style = wxCAPTION|wxDEFAULT_DIALOG_STYLE|wxTAB_TRAVERSAL ); 
 		~WmmUIDialog();
 	
 };

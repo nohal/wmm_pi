@@ -86,9 +86,9 @@ WmmUIDialog::WmmUIDialog( wxWindow* parent, wxWindowID id, const wxString& title
 	gSizer3->SetFlexibleDirection( wxBOTH );
 	gSizer3->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
 	
-	m_staticText13 = new wxStaticText( this, wxID_ANY, _("Decl"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText13 = new wxStaticText( this, wxID_ANY, _("Vari"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText13->Wrap( -1 );
-	m_staticText13->SetToolTip( _("D (DEC) - Geomagnetic Declination") );
+	m_staticText13->SetToolTip( _("Magnetic Variation") );
 	m_staticText13->SetMinSize( wxSize( 50,-1 ) );
 	
 	gSizer3->Add( m_staticText13, 0, wxALL, 5 );
@@ -172,9 +172,9 @@ WmmUIDialog::WmmUIDialog( wxWindow* parent, wxWindowID id, const wxString& title
 	gSizer4->SetFlexibleDirection( wxBOTH );
 	gSizer4->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
 	
-	m_staticText131 = new wxStaticText( this, wxID_ANY, _("Decl"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText131 = new wxStaticText( this, wxID_ANY, _("Vari"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText131->Wrap( -1 );
-	m_staticText131->SetToolTip( _("D (DEC) - Geomagnetic Declination") );
+	m_staticText131->SetToolTip( _("Magnetic Variation") );
 	m_staticText131->SetMinSize( wxSize( 50,-1 ) );
 	
 	gSizer4->Add( m_staticText131, 0, wxALL, 5 );
