@@ -1,0 +1,187 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-04-05 10:42+0200\n"
+"PO-Revision-Date: 2011-05-16 09:12+0100\n"
+"Last-Translator: Gunther Pilz <gunther.pilz@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: src/wmm_pi.cpp:130
+#: src/wmm_pi.cpp:196
+#: src/WmmUIDialog.h:75
+msgid "WMM"
+msgstr "WMM"
+
+#: src/wmm_pi.cpp:202
+msgid "World Magnetic Model PlugIn for OpenCPN"
+msgstr "World Magnetic Model PlugIn für OpenCPN"
+
+#: src/wmm_pi.cpp:207
+msgid ""
+"World Magnetic Model PlugIn for OpenCPN\n"
+"Implements the NOAA World Magnetic Model\n"
+"More information: http://www.ngdc.noaa.gov/geomag/WMM/\n"
+"The bundled WMM2010 model expires on December 31, 2014.\n"
+"After then, if new version of the plugin will not be released\n"
+"in time, get a new WMM.COF from NOAA and place it to the\n"
+"location you can find in the OpenCPN logfile."
+msgstr ""
+"World Magnetic Model Plugin für OpenCPN\n"
+"Implementiert das NOAA World Magnetic Model\n"
+"(siehe: http://www.ngdc.noaa.gov/geomag/WMM/)\n"
+"Das integrierte WMM2010 Model läuft am 31. Dezember 2014 aus.\n"
+"Wenn es nach diesem Zeitpunkt keine neue Version des Plugins geben\n"
+"sollte, lade eine neue WMM.COF Datei von der NOAA in das Verzeichnis herunter,\n"
+"welches du im OpenCPN Log findest."
+
+#: src/wmm_pi.cpp:306
+#: src/wmm_pi.cpp:339
+msgid "Error, see log."
+msgstr "Fehler - siehe Log."
+
+#: src/wmm_pi.cpp:324
+#: src/wmm_pi.cpp:325
+#: src/wmm_pi.cpp:326
+#: src/wmm_pi.cpp:327
+#: src/wmm_pi.cpp:328
+#: src/wmm_pi.cpp:356
+#: src/wmm_pi.cpp:357
+#: src/wmm_pi.cpp:358
+#: src/wmm_pi.cpp:359
+#: src/wmm_pi.cpp:360
+#, c-format
+msgid "%-9.1lf nT"
+msgstr "%-9.1lf nT"
+
+#: src/wmm_pi.cpp:329
+#, c-format
+msgid "%-5.1lf\\u00B0 (%s)"
+msgstr "%-5.1lf\\u00B0 (%s)"
+
+#: src/wmm_pi.cpp:330
+#, c-format
+msgid "%-5.1lf\\u00B0"
+msgstr "%-5.1lf\\u00B0"
+
+#: src/wmm_pi.cpp:370
+#, c-format
+msgid "%u\\u00B0%u' W"
+msgstr "%u\\u00B0%u' W"
+
+#: src/wmm_pi.cpp:372
+#, c-format
+msgid "%u\\u00B0%u' E"
+msgstr "%u\\u00B0%u' E"
+
+#: src/wmm_pi.cpp:427
+#: src/WmmUIDialog.h:97
+msgid "WMM Preferences"
+msgstr "WMM Einstellungen"
+
+#: src/WmmUIDialog.cpp:19
+msgid "Boat"
+msgstr "Boot"
+
+#: src/WmmUIDialog.cpp:26
+#: src/WmmUIDialog.cpp:112
+msgid "F"
+msgstr "F"
+
+#: src/WmmUIDialog.cpp:28
+#: src/WmmUIDialog.cpp:114
+msgid "Total Intensity"
+msgstr "Gesamt-Intensität"
+
+#: src/WmmUIDialog.cpp:35
+#: src/WmmUIDialog.cpp:121
+msgid "H"
+msgstr "H"
+
+#: src/WmmUIDialog.cpp:37
+#: src/WmmUIDialog.cpp:123
+msgid "Horizontal Intensity"
+msgstr "Horizontale Intensität"
+
+#: src/WmmUIDialog.cpp:44
+#: src/WmmUIDialog.cpp:130
+msgid "X"
+msgstr "X"
+
+#: src/WmmUIDialog.cpp:46
+#: src/WmmUIDialog.cpp:132
+msgid "North Component"
+msgstr "Nord Komponente"
+
+#: src/WmmUIDialog.cpp:53
+#: src/WmmUIDialog.cpp:139
+msgid "Y"
+msgstr "Y"
+
+#: src/WmmUIDialog.cpp:55
+#: src/WmmUIDialog.cpp:141
+msgid "East Component"
+msgstr "Ost Komponente"
+
+#: src/WmmUIDialog.cpp:62
+#: src/WmmUIDialog.cpp:148
+msgid "Z"
+msgstr "Z"
+
+#: src/WmmUIDialog.cpp:64
+#: src/WmmUIDialog.cpp:150
+msgid "Vertical Component"
+msgstr "Vertikale Komponente"
+
+#: src/WmmUIDialog.cpp:71
+#: src/WmmUIDialog.cpp:157
+msgid "Incl"
+msgstr "Inkl."
+
+#: src/WmmUIDialog.cpp:73
+#: src/WmmUIDialog.cpp:159
+msgid "(DIP) - Geomagnetic Inclination "
+msgstr "Inklination (DIP)"
+
+#: src/WmmUIDialog.cpp:89
+#: src/WmmUIDialog.cpp:175
+msgid "Vari"
+msgstr "Dekl."
+
+#: src/WmmUIDialog.cpp:91
+#: src/WmmUIDialog.cpp:177
+msgid "Magnetic Variation"
+msgstr "Deklination"
+
+#: src/WmmUIDialog.cpp:105
+msgid "Cursor"
+msgstr "Cursor"
+
+#: src/WmmUIDialog.cpp:208
+msgid "Extended"
+msgstr "Erweitert"
+
+#: src/WmmUIDialog.cpp:208
+msgid "Variation only"
+msgstr "nur Deklination"
+
+#: src/WmmUIDialog.cpp:210
+msgid "View"
+msgstr "Anzeige"
+
+#: src/WmmUIDialog.cpp:214
+msgid "Show also data at cursor position"
+msgstr "Zeige auch Daten der Cursorposition"
+
+#: src/WmmUIDialog.cpp:218
+msgid "Window transparency"
+msgstr "Fenster-Transparenz"
+
