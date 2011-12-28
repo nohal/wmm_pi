@@ -1936,10 +1936,10 @@ int WMM_PcupHigh(double *Pcup, double *dPcup, double x, int nMax)
 	  return FALSE;
 	}
 
-
 	f1  =   	(double *) 	malloc	( (NumTerms +1) * sizeof ( double ) );
 	if (f1 == 0)
 	{
+            free(f1);
 		WMM_Error(18);
 		//printf("error allocating in WMM_PcupHigh\n");
 		return FALSE;
@@ -1950,6 +1950,7 @@ int WMM_PcupHigh(double *Pcup, double *dPcup, double x, int nMax)
 
 	if (PreSqr == 0)
 	{
+            free(PreSqr);
 		WMM_Error(18);
 		//printf("error allocating in WMM_PcupHigh\n");
 		return FALSE;
@@ -1959,6 +1960,7 @@ int WMM_PcupHigh(double *Pcup, double *dPcup, double x, int nMax)
 
 	if (f2 == 0)
 	{
+            free(f2);
 		WMM_Error(18);
 		//printf("error allocating in WMM_PcupHigh\n");
 		return FALSE;
@@ -3741,6 +3743,7 @@ int WMM_readMagneticModel_ISO(char *filename, WMMtype_MagneticModel *magneticmod
     stream = fopen(filename, READONLYMODE);
     if (stream == NULL) {
         perror("File open error");
+        free(line);
         return header_index;
     }
 
