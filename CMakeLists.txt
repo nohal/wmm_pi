@@ -67,6 +67,13 @@ SET(SRC_WMM
 	    src/WmmUIDialog.h
 	    src/WmmUIDialog.cpp
 	    src/WMM_COF.h
+	    src/json_defs.h
+	    src/jsonreader.h
+	    src/jsonval.h
+	    src/jsonwriter.h
+	    src/jsonreader.cpp
+	    src/jsonval.cpp
+	    src/jsonwriter.cpp
 	)
 ADD_LIBRARY(${PACKAGE_NAME} SHARED ${SRC_WMM})
 

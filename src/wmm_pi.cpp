@@ -137,7 +137,8 @@ int wmm_pi::Init(void)
               INSTALLS_TOOLBAR_TOOL     |
 	        WANTS_NMEA_EVENTS         |
               WANTS_PREFERENCES         |
-              WANTS_CONFIG
+              WANTS_CONFIG              |
+              WANTS_PLUGIN_MESSAGING
            );
 }
 
@@ -328,6 +329,9 @@ void wmm_pi::SetCursorLatLon(double lat, double lon)
       m_pWmmDialog->m_tcZ->SetValue(wxString::Format(_("%-9.1lf nT"), GeoMagneticElements.Z));
       m_pWmmDialog->m_tcD->SetValue(wxString::Format(_("%-5.1lf\u00B0 (%s)"), GeoMagneticElements.Decl, AngleToText(GeoMagneticElements.Decl).c_str()));
       m_pWmmDialog->m_tcI->SetValue(wxString::Format(_("%-5.1lf\u00B0"), GeoMagneticElements.Incl));
+
+      m_cursorVariation = GeoMagneticElements;
+      SendCursorVariation();
 }
 
 void wmm_pi::SetPositionFix(PlugIn_Position_Fix &pfix)
@@ -360,6 +364,72 @@ void wmm_pi::SetPositionFix(PlugIn_Position_Fix &pfix)
       m_pWmmDialog->m_tbZ->SetValue(wxString::Format(_("%-9.1lf nT"), GeoMagneticElements.Z));
       m_pWmmDialog->m_tbD->SetValue(wxString::Format(_T("%-5.1lf\u00B0 (%s)"), GeoMagneticElements.Decl, AngleToText(GeoMagneticElements.Decl).c_str()));
       m_pWmmDialog->m_tbI->SetValue(wxString::Format(_T("%-5.1lf\u00B0"), GeoMagneticElements.Incl));
+
+      m_cursorVariation = GeoMagneticElements;
+      SendBoatVariation();
+}
+
+//Demo implementation of response mechanism
+void wmm_pi::SetPluginMessage(wxString message_id, wxString message_body)
+{
+      if(message_id == _T("WMM_VARIATION_BOAT_REQUEST"))
+      {
+            SendBoatVariation();
+      }
+      else if(message_id == _T("WMM_VARIATION_CURSOR_REQUEST"))
+      {
+            SendCursorVariation();
+      }
+}
+
+void wmm_pi::SendBoatVariation()
+{
+      wxJSONValue v;
+      v[_T("Decl")] = m_boatVariation.Decl;
+      v[_T("Decldot")] = m_boatVariation.Decldot;
+      v[_T("F")] = m_boatVariation.F;
+      v[_T("Fdot")] = m_boatVariation.Fdot;
+      v[_T("GV")] = m_boatVariation.GV;
+      v[_T("GVdot")] = m_boatVariation.GVdot;
+      v[_T("H")] = m_boatVariation.H;
+      v[_T("Hdot")] = m_boatVariation.Hdot;
+      v[_T("Incl")] = m_boatVariation.Incl;
+      v[_T("Incldot")] = m_boatVariation.Incldot;
+      v[_T("X")] = m_boatVariation.X;
+      v[_T("Xdot")] = m_boatVariation.Xdot;
+      v[_T("Y")] = m_boatVariation.Y;
+      v[_T("Ydot")] = m_boatVariation.Ydot;
+      v[_T("Z")] = m_boatVariation.Z;
+      v[_T("Zdot")] = m_boatVariation.Zdot;
+      wxJSONWriter w;
+      wxString out;
+      w.Write(v, out);
+      SendPluginMessage(wxString(_T("WMM_VARIATION_BOAT")), out);
+}
+
+void wmm_pi::SendCursorVariation()
+{
+      wxJSONValue v;
+      v[_T("Decl")] = m_cursorVariation.Decl;
+      v[_T("Decldot")] = m_cursorVariation.Decldot;
+      v[_T("F")] = m_cursorVariation.F;
+      v[_T("Fdot")] = m_cursorVariation.Fdot;
+      v[_T("GV")] = m_cursorVariation.GV;
+      v[_T("GVdot")] = m_cursorVariation.GVdot;
+      v[_T("H")] = m_cursorVariation.H;
+      v[_T("Hdot")] = m_cursorVariation.Hdot;
+      v[_T("Incl")] = m_cursorVariation.Incl;
+      v[_T("Incldot")] = m_cursorVariation.Incldot;
+      v[_T("X")] = m_cursorVariation.X;
+      v[_T("Xdot")] = m_cursorVariation.Xdot;
+      v[_T("Y")] = m_cursorVariation.Y;
+      v[_T("Ydot")] = m_cursorVariation.Ydot;
+      v[_T("Z")] = m_cursorVariation.Z;
+      v[_T("Zdot")] = m_cursorVariation.Zdot;
+      wxJSONWriter w;
+      wxString out;
+      w.Write(v, out);
+      SendPluginMessage(wxString(_T("WMM_VARIATION_CURSOR")), out);
 }
 
 wxString wmm_pi::AngleToText(double angle)
@@ -509,7 +579,8 @@ int WMM_setupMagneticModel(char *data, WMMtype_MagneticModel * MagneticModel)
 			MagneticModel->Secular_Var_Coeff_H[index] = dhnm;
 		}
 	}
-
+      
+      free(tmp_data);
 	return TRUE;
 } /*WMM_setupMagneticModel */
 

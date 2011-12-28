@@ -38,10 +38,10 @@
 #include <wx/fileconf.h>
 
 #define     PLUGIN_VERSION_MAJOR    0
-#define     PLUGIN_VERSION_MINOR    3
+#define     PLUGIN_VERSION_MINOR    4
 
 #define     MY_API_VERSION_MAJOR    1
-#define     MY_API_VERSION_MINOR    5
+#define     MY_API_VERSION_MINOR    6
 
 #include "../../../include/ocpn_plugin.h"
 
@@ -49,6 +49,8 @@
 #include "WMM_SubLibrary.c"
 #include "WmmUIDialog.h"
 #include "WMM_COF.h"
+
+#include "jsonwriter.h"
 
 //----------------------------------------------------------------------------------------------------------
 //    The PlugIn Class Definition
@@ -85,6 +87,7 @@ public:
 
 //    Optional plugin overrides
       void SetColorScheme(PI_ColorScheme cs);
+      void SetPluginMessage(wxString message_id, wxString message_body);
       
 
 //    Other public methods
@@ -124,6 +127,12 @@ private:
       void              RearangeWindow();
       wxString          m_wmm_dir;
       bool              m_buseable, m_busegeoid;
+
+      void              SendBoatVariation();
+      void              SendCursorVariation();
+
+      WMMtype_GeoMagneticElements m_cursorVariation;
+      WMMtype_GeoMagneticElements m_boatVariation;
 };
 
 int WMM_setupMagneticModel(char *data, WMMtype_MagneticModel * MagneticModel);
