@@ -87,7 +87,7 @@ public:
 
 //    Optional plugin overrides
       void SetColorScheme(PI_ColorScheme cs);
-      void SetPluginMessage(wxString message_id, wxString message_body);
+      void SetPluginMessage(wxString &message_id, wxString &message_body);
       
 
 //    Other public methods

@@ -294,6 +294,10 @@ void wmm_pi::OnToolbarToolCallback(int id)
       /*m_pWmmDialog->SetMaxSize(m_pWmmDialog->GetSize());
       m_pWmmDialog->SetMinSize(m_pWmmDialog->GetSize());*/
       m_pWmmDialog->Show(!m_pWmmDialog->IsShown());
+      if (m_pWmmDialog->IsShown())
+            SendPluginMessage(_T("WMM_WINDOW_SHOWN"), wxEmptyString);
+      else
+            SendPluginMessage(_T("WMM_WINDOW_HIDDEN"), wxEmptyString);
 }
 
 void wmm_pi::SetCursorLatLon(double lat, double lon)
@@ -365,12 +369,12 @@ void wmm_pi::SetPositionFix(PlugIn_Position_Fix &pfix)
       m_pWmmDialog->m_tbD->SetValue(wxString::Format(_T("%-5.1lf\u00B0 (%s)"), GeoMagneticElements.Decl, AngleToText(GeoMagneticElements.Decl).c_str()));
       m_pWmmDialog->m_tbI->SetValue(wxString::Format(_T("%-5.1lf\u00B0"), GeoMagneticElements.Incl));
 
-      m_cursorVariation = GeoMagneticElements;
+      m_boatVariation = GeoMagneticElements;
       SendBoatVariation();
 }
 
 //Demo implementation of response mechanism
-void wmm_pi::SetPluginMessage(wxString message_id, wxString message_body)
+void wmm_pi::SetPluginMessage(wxString &message_id, wxString &message_body)
 {
       if(message_id == _T("WMM_VARIATION_BOAT_REQUEST"))
       {
