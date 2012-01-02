@@ -207,7 +207,7 @@ WmmPrefsDialog::WmmPrefsDialog( wxWindow* parent, wxWindowID id, const wxString&
 	
 	wxString m_rbViewTypeChoices[] = { _("Extended"), _("Variation only") };
 	int m_rbViewTypeNChoices = sizeof( m_rbViewTypeChoices ) / sizeof( wxString );
-	m_rbViewType = new wxRadioBox( this, wxID_ANY, _("View"), wxDefaultPosition, wxDefaultSize, m_rbViewTypeNChoices, m_rbViewTypeChoices, 2, wxRA_SPECIFY_COLS );
+	m_rbViewType = new wxRadioBox( this, wxID_ANY, _("Display mode"), wxDefaultPosition, wxDefaultSize, m_rbViewTypeNChoices, m_rbViewTypeChoices, 2, wxRA_SPECIFY_COLS );
 	m_rbViewType->SetSelection( 1 );
 	bSizer2->Add( m_rbViewType, 0, wxALL|wxEXPAND, 5 );
 	
