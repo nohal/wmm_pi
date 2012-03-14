@@ -22,7 +22,7 @@
  *   You should have received a copy of the GNU General Public License     *
  *   along with this program; if not, write to the                         *
  *   Free Software Foundation, Inc.,                                       *
- *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
+ *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301,  USA.             *
  ***************************************************************************
  */
 
@@ -63,7 +63,7 @@ extern "C" DECL_EXP void destroy_pi(opencpn_plugin* p)
 //---------------------------------------------------------------------------------------------------------
 
 wmm_pi::wmm_pi(void *ppimgr)
-      :opencpn_plugin(ppimgr)
+      :opencpn_plugin_16(ppimgr)
 {
       // Create the PlugIn icons
       initialize_images();
@@ -376,7 +376,19 @@ void wmm_pi::SetPositionFix(PlugIn_Position_Fix &pfix)
 //Demo implementation of response mechanism
 void wmm_pi::SetPluginMessage(wxString &message_id, wxString &message_body)
 {
-      if(message_id == _T("WMM_VARIATION_BOAT_REQUEST"))
+      if(message_id == _T("WMM_VARIATION_REQUEST"))
+      {
+            wxJSONReader r;
+            wxJSONValue v;
+            r.Parse(message_body, &v);
+            double lat = v[_T("Lat")].AsDouble();
+            double lon = v[_T("Lon")].AsDouble();
+            int year = v[_T("Year")].AsInt();
+            int month = v[_T("Month")].AsInt();
+            int day = v[_T("Day")].AsInt();
+            SendVariationAt(lat, lon, year, month, day);
+      }
+      else if(message_id == _T("WMM_VARIATION_BOAT_REQUEST"))
       {
             SendBoatVariation();
       }
@@ -384,6 +396,49 @@ void wmm_pi::SetPluginMessage(wxString &message_id, wxString &message_body)
       {
             SendCursorVariation();
       }
+}
+
+void wmm_pi::SendVariationAt(double lat, double lon, int year, int month, int day)
+{
+      wxJSONValue v;
+      v[_T("Lat")] = lat;
+      v[_T("Lon")] = lat;
+      v[_T("Year")] = year;
+      v[_T("Month")] = month;
+      v[_T("Day")] = day;
+      CoordGeodetic.lambda = lon;
+      CoordGeodetic.phi = lat;
+      CoordGeodetic.HeightAboveEllipsoid = 0;
+      CoordGeodetic.UseGeoid = 0;
+      UserDate.Year = year;
+      UserDate.Month = month;
+      UserDate.Day = day;
+      char err[255];
+      WMM_DateToYear(&UserDate, err);
+      WMM_GeodeticToSpherical(Ellip, CoordGeodetic, &CoordSpherical);    /*Convert from geodeitic to Spherical Equations: 17-18, WMM Technical report*/
+      WMM_TimelyModifyMagneticModel(UserDate, MagneticModel, TimedMagneticModel); /* Time adjust the coefficients, Equation 19, WMM Technical report */
+      WMM_Geomag(Ellip, CoordSpherical, CoordGeodetic, TimedMagneticModel, &GeoMagneticElements);   /* Computes the geoMagnetic field elements and their time change*/
+      WMM_CalculateGridVariation(CoordGeodetic,&GeoMagneticElements);
+      v[_T("Decl")] = GeoMagneticElements.Decl;
+      v[_T("Decldot")] = GeoMagneticElements.Decldot;
+      v[_T("F")] = GeoMagneticElements.F;
+      v[_T("Fdot")] = GeoMagneticElements.Fdot;
+      v[_T("GV")] = GeoMagneticElements.GV;
+      v[_T("GVdot")] = GeoMagneticElements.GVdot;
+      v[_T("H")] = GeoMagneticElements.H;
+      v[_T("Hdot")] = GeoMagneticElements.Hdot;
+      v[_T("Incl")] = GeoMagneticElements.Incl;
+      v[_T("Incldot")] = GeoMagneticElements.Incldot;
+      v[_T("X")] = GeoMagneticElements.X;
+      v[_T("Xdot")] = GeoMagneticElements.Xdot;
+      v[_T("Y")] = GeoMagneticElements.Y;
+      v[_T("Ydot")] = GeoMagneticElements.Ydot;
+      v[_T("Z")] = GeoMagneticElements.Z;
+      v[_T("Zdot")] = GeoMagneticElements.Zdot;
+      wxJSONWriter w;
+      wxString out;
+      w.Write(v, out);
+      SendPluginMessage(wxString(_T("WMM_VARIATION")), out);
 }
 
 void wmm_pi::SendBoatVariation()

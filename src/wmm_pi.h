@@ -22,7 +22,7 @@
  *   You should have received a copy of the GNU General Public License     *
  *   along with this program; if not, write to the                         *
  *   Free Software Foundation, Inc.,                                       *
- *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
+ *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301,  USA.             *
  ***************************************************************************
  */
 
@@ -50,6 +50,7 @@
 #include "WmmUIDialog.h"
 #include "WMM_COF.h"
 
+#include "jsonreader.h"
 #include "jsonwriter.h"
 
 //----------------------------------------------------------------------------------------------------------
@@ -58,7 +59,7 @@
 
 #define WMM_TOOL_POSITION    -1          // Request default positioning of toolbar tool
 
-class wmm_pi : public opencpn_plugin
+class wmm_pi : public opencpn_plugin_16
 {
 public:
       wmm_pi(void *ppimgr);
@@ -128,6 +129,7 @@ private:
       wxString          m_wmm_dir;
       bool              m_buseable, m_busegeoid;
 
+      void              SendVariationAt(double lat, double lon, int year, int month, int day);
       void              SendBoatVariation();
       void              SendCursorVariation();
 
