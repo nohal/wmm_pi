@@ -7,25 +7,100 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-04-05 10:42+0200\n"
+"POT-Creation-Date: 2012-03-14 16:42+0100\n"
 "PO-Revision-Date: 2011-04-05 19:37+0100\n"
 "Last-Translator: FJB <fj.bonig@kpnplanet.nl>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-
-#: src/wmm_pi.cpp:130
-#: src/wmm_pi.cpp:196
-#: src/WmmUIDialog.h:75
+#
+#, c-format
+msgid "%-5.1lf\\u00B0"
+msgstr "%-5.1lf\\u00B0"
+#
+#, c-format
+msgid "%-5.1lf\\u00B0 (%s)"
+msgstr "%-5.1lf\\u00B0 (%s)"
+#
+#, c-format
+msgid "%-9.1lf nT"
+msgstr "%-9.1lf nT"
+#
+#, c-format
+msgid "%u\\u00B0%u' E"
+msgstr "%u\\u00B0%u' O"
+#
+#, c-format
+msgid "%u\\u00B0%u' W"
+msgstr "%u\\u00B0%u' W"
+#
+msgid "(DIP) - Geomagnetic Inclination "
+msgstr "Geomagnetische inclinatie"
+#
+msgid "Boat"
+msgstr "Schip"
+#
+msgid "Cursor"
+msgstr "Cursor"
+#
+msgid "Display mode"
+msgstr ""
+#
+msgid "East Component"
+msgstr "Oost component"
+#
+msgid "Error, see log."
+msgstr "Fout, zie het log."
+#
+msgid "Extended"
+msgstr "Uitgebreide gegevens"
+#
+msgid "F"
+msgstr "F"
+#
+msgid "H"
+msgstr "H"
+#
+msgid "Horizontal Intensity"
+msgstr "Horizontale intensiteit"
+#
+msgid "Incl"
+msgstr "inclinatie"
+#
+msgid "Magnetic Variation"
+msgstr "Geomagnetische variatie"
+#
+msgid "North Component"
+msgstr "Noord component"
+#
+msgid "Show also data at cursor position"
+msgstr "Laat ook gegevens voor cursorpositie zien"
+#
+msgid "Total Intensity"
+msgstr "Totale intensiteit"
+#
+msgid "Vari"
+msgstr "variatie"
+#
+msgid "Variation only"
+msgstr "Alleen variatie"
+#
+msgid "Vertical Component"
+msgstr "Verticale component"
+#
 msgid "WMM"
 msgstr "World Magnetic Model"
-
-#: src/wmm_pi.cpp:202
+#
+msgid "WMM Preferences"
+msgstr "WMM Voorkeuren"
+#
+msgid "Window transparency"
+msgstr "Doorzichtbaarheid van scherm"
+#
 msgid "World Magnetic Model PlugIn for OpenCPN"
 msgstr "World Magnetic Model PlugIn voor OpenCPN"
-
-#: src/wmm_pi.cpp:207
+#
 msgid ""
 "World Magnetic Model PlugIn for OpenCPN\n"
 "Implements the NOAA World Magnetic Model\n"
@@ -35,151 +110,23 @@ msgid ""
 "in time, get a new WMM.COF from NOAA and place it to the\n"
 "location you can find in the OpenCPN logfile."
 msgstr ""
-"Deze PlugIn geeft binnen OpenCPN de beschikking over het World Magnetic Model\n"
+"Deze PlugIn geeft binnen OpenCPN de beschikking over het World Magnetic "
+"Model\n"
 "van NOAA. Meer informatie op de site: http://www.ngdc.noaa.gov/geomag/WMM/.\n"
 "Het huidige WMM2010 model is valide tot 31 december 2014. Als er daarna geen\n"
-"nieuwe versie van de PlugIn  beschikbaar is: download het bestand WMM.COF van\n"
-"de NOAA site en plaats dit op de locatie waar ook het OpenCPN logbestand staat."
-
-#: src/wmm_pi.cpp:306
-#: src/wmm_pi.cpp:339
-msgid "Error, see log."
-msgstr "Fout, zie het log."
-
-#: src/wmm_pi.cpp:324
-#: src/wmm_pi.cpp:325
-#: src/wmm_pi.cpp:326
-#: src/wmm_pi.cpp:327
-#: src/wmm_pi.cpp:328
-#: src/wmm_pi.cpp:356
-#: src/wmm_pi.cpp:357
-#: src/wmm_pi.cpp:358
-#: src/wmm_pi.cpp:359
-#: src/wmm_pi.cpp:360
-#, c-format
-msgid "%-9.1lf nT"
-msgstr "%-9.1lf nT"
-
-#: src/wmm_pi.cpp:329
-#, c-format
-msgid "%-5.1lf\\u00B0 (%s)"
-msgstr "%-5.1lf\\u00B0 (%s)"
-
-#: src/wmm_pi.cpp:330
-#, c-format
-msgid "%-5.1lf\\u00B0"
-msgstr "%-5.1lf\\u00B0"
-
-#: src/wmm_pi.cpp:370
-#, c-format
-msgid "%u\\u00B0%u' W"
-msgstr "%u\\u00B0%u' W"
-
-#: src/wmm_pi.cpp:372
-#, c-format
-msgid "%u\\u00B0%u' E"
-msgstr "%u\\u00B0%u' O"
-
-#: src/wmm_pi.cpp:427
-#: src/WmmUIDialog.h:97
-msgid "WMM Preferences"
-msgstr "WMM Voorkeuren"
-
-#: src/WmmUIDialog.cpp:19
-msgid "Boat"
-msgstr "Schip"
-
-#: src/WmmUIDialog.cpp:26
-#: src/WmmUIDialog.cpp:112
-msgid "F"
-msgstr "F"
-
-#: src/WmmUIDialog.cpp:28
-#: src/WmmUIDialog.cpp:114
-msgid "Total Intensity"
-msgstr "Totale intensiteit"
-
-#: src/WmmUIDialog.cpp:35
-#: src/WmmUIDialog.cpp:121
-msgid "H"
-msgstr "H"
-
-#: src/WmmUIDialog.cpp:37
-#: src/WmmUIDialog.cpp:123
-msgid "Horizontal Intensity"
-msgstr "Horizontale intensiteit"
-
-#: src/WmmUIDialog.cpp:44
-#: src/WmmUIDialog.cpp:130
+"nieuwe versie van de PlugIn  beschikbaar is: download het bestand WMM.COF "
+"van\n"
+"de NOAA site en plaats dit op de locatie waar ook het OpenCPN logbestand "
+"staat."
+#
 msgid "X"
 msgstr "X"
-
-#: src/WmmUIDialog.cpp:46
-#: src/WmmUIDialog.cpp:132
-msgid "North Component"
-msgstr "Noord component"
-
-#: src/WmmUIDialog.cpp:53
-#: src/WmmUIDialog.cpp:139
+#
 msgid "Y"
 msgstr "Y"
-
-#: src/WmmUIDialog.cpp:55
-#: src/WmmUIDialog.cpp:141
-msgid "East Component"
-msgstr "Oost component"
-
-#: src/WmmUIDialog.cpp:62
-#: src/WmmUIDialog.cpp:148
+#
 msgid "Z"
 msgstr "Z"
-
-#: src/WmmUIDialog.cpp:64
-#: src/WmmUIDialog.cpp:150
-msgid "Vertical Component"
-msgstr "Verticale component"
-
-#: src/WmmUIDialog.cpp:71
-#: src/WmmUIDialog.cpp:157
-msgid "Incl"
-msgstr "inclinatie"
-
-#: src/WmmUIDialog.cpp:73
-#: src/WmmUIDialog.cpp:159
-msgid "(DIP) - Geomagnetic Inclination "
-msgstr "Geomagnetische inclinatie"
-
-#: src/WmmUIDialog.cpp:89
-#: src/WmmUIDialog.cpp:175
-msgid "Vari"
-msgstr "variatie"
-
-#: src/WmmUIDialog.cpp:91
-#: src/WmmUIDialog.cpp:177
-msgid "Magnetic Variation"
-msgstr "Geomagnetische variatie"
-
-#: src/WmmUIDialog.cpp:105
-msgid "Cursor"
-msgstr "Cursor"
-
-#: src/WmmUIDialog.cpp:208
-msgid "Extended"
-msgstr "Uitgebreide gegevens"
-
-#: src/WmmUIDialog.cpp:208
-msgid "Variation only"
-msgstr "Alleen variatie"
-
-#: src/WmmUIDialog.cpp:210
-msgid "View"
-msgstr "Toon"
-
-#: src/WmmUIDialog.cpp:214
-msgid "Show also data at cursor position"
-msgstr "Laat ook gegevens voor cursorpositie zien"
-
-#: src/WmmUIDialog.cpp:218
-msgid "Window transparency"
-msgstr "Doorzichtbaarheid van scherm"
-
+#
+#~ msgid "View"
+#~ msgstr "Toon"

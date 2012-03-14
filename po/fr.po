@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: opencpn\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-01-02 13:29+0100\n"
+"POT-Creation-Date: 2012-03-14 16:42+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Pavel Kalian <pavel@kalian.cz>\n"
 "Language-Team: \n"
@@ -12,17 +12,122 @@ msgstr ""
 "X-Poedit-Language: French\n"
 "X-Poedit-Country: FRANCE\n"
 
-#: src/wmm_pi.cpp:130
-#: src/wmm_pi.cpp:197
-#: src/WmmUIDialog.h:75
+#
+#, c-format
+msgid "%-5.1lf\\u00B0"
+msgstr "%-5.1lf\\u00B0"
+
+#
+#, c-format
+msgid "%-5.1lf\\u00B0 (%s)"
+msgstr "%-5.1lf\\u00B0 (%s)"
+
+#
+#, c-format
+msgid "%-9.1lf nT"
+msgstr "%-9.1lf nT"
+
+#
+#, c-format
+msgid "%u\\u00B0%u' E"
+msgstr "%u\\u00B0%u' E"
+
+#
+#, c-format
+msgid "%u\\u00B0%u' W"
+msgstr "%u\\u00B0%u' O"
+
+#
+msgid "(DIP) - Geomagnetic Inclination "
+msgstr "DIP : Inclinaison géo-magnétique"
+
+#
+msgid "Boat"
+msgstr "Bateau :"
+
+#
+#
+msgid "Cursor"
+msgstr "Curseur :"
+
+#
+msgid "Display mode"
+msgstr ""
+
+#
+msgid "East Component"
+msgstr "Composante est"
+
+#
+msgid "Error, see log."
+msgstr "Erreur. Voir dans le fichier log."
+
+#
+msgid "Extended"
+msgstr "Etendu"
+
+#
+msgid "F"
+msgstr "Total :"
+
+#
+msgid "H"
+msgstr "Horizontal :"
+
+#
+msgid "Horizontal Intensity"
+msgstr "Valeur horizontale"
+
+#
+#
+msgid "Incl"
+msgstr "Inclinaison"
+
+#
+msgid "Magnetic Variation"
+msgstr "Variation magnétique"
+
+#
+msgid "North Component"
+msgstr "Composante nord"
+
+#
+msgid "Show also data at cursor position"
+msgstr "Montrer aussi pour la position du curseur"
+
+#
+msgid "Total Intensity"
+msgstr "Valeur totale"
+
+#
+msgid "Vari"
+msgstr "Variation"
+
+#
+msgid "Variation only"
+msgstr "Variation uniquement"
+
+#
+msgid "Vertical Component"
+msgstr "Composante verticale"
+
+#
 msgid "WMM"
 msgstr "Variations magnétiques"
 
-#: src/wmm_pi.cpp:203
+#
+msgid "WMM Preferences"
+msgstr "Préférences"
+
+#
+msgid "Window transparency"
+msgstr "Transparence de la fenêtre"
+
+#
 msgid "World Magnetic Model PlugIn for OpenCPN"
 msgstr "Variation magnétique mondiale pour OpenCPN."
 
-#: src/wmm_pi.cpp:208
+#
 msgid ""
 "World Magnetic Model PlugIn for OpenCPN\n"
 "Implements the NOAA World Magnetic Model\n"
@@ -40,151 +145,15 @@ msgstr ""
 "- vous procurer un nouveau fichier WMM.COF sur le site de  la NOAA\n"
 "- le placer dans le dossier XXXXX dont l'adresse figure dans le fichier opencpn.ini."
 
-#: src/wmm_pi.cpp:311
-#: src/wmm_pi.cpp:347
-msgid "Error, see log."
-msgstr "Erreur. Voir dans le fichier log."
-
-#: src/wmm_pi.cpp:329
-#: src/wmm_pi.cpp:330
-#: src/wmm_pi.cpp:331
-#: src/wmm_pi.cpp:332
-#: src/wmm_pi.cpp:333
-#: src/wmm_pi.cpp:364
-#: src/wmm_pi.cpp:365
-#: src/wmm_pi.cpp:366
-#: src/wmm_pi.cpp:367
-#: src/wmm_pi.cpp:368
-#, c-format
-msgid "%-9.1lf nT"
-msgstr "%-9.1lf nT"
-
-#: src/wmm_pi.cpp:334
-#, c-format
-msgid "%-5.1lf\\u00B0 (%s)"
-msgstr "%-5.1lf\\u00B0 (%s)"
-
-#: src/wmm_pi.cpp:335
-#, c-format
-msgid "%-5.1lf\\u00B0"
-msgstr "%-5.1lf\\u00B0"
-
-#: src/wmm_pi.cpp:444
-#, c-format
-msgid "%u\\u00B0%u' W"
-msgstr "%u\\u00B0%u' O"
-
-#: src/wmm_pi.cpp:446
-#, c-format
-msgid "%u\\u00B0%u' E"
-msgstr "%u\\u00B0%u' E"
-
-#: src/wmm_pi.cpp:501
-#: src/WmmUIDialog.h:97
-msgid "WMM Preferences"
-msgstr "Préférences"
-
-#: src/WmmUIDialog.cpp:19
-msgid "Boat"
-msgstr "Bateau :"
-
-#: src/WmmUIDialog.cpp:26
-#: src/WmmUIDialog.cpp:112
-msgid "F"
-msgstr "Total :"
-
-#: src/WmmUIDialog.cpp:28
-#: src/WmmUIDialog.cpp:114
-msgid "Total Intensity"
-msgstr "Valeur totale"
-
-#: src/WmmUIDialog.cpp:35
-#: src/WmmUIDialog.cpp:121
-msgid "H"
-msgstr "Horizontal :"
-
-#: src/WmmUIDialog.cpp:37
-#: src/WmmUIDialog.cpp:123
-msgid "Horizontal Intensity"
-msgstr "Valeur horizontale"
-
-#: src/WmmUIDialog.cpp:44
-#: src/WmmUIDialog.cpp:130
+#
 msgid "X"
 msgstr "X"
 
-#: src/WmmUIDialog.cpp:46
-#: src/WmmUIDialog.cpp:132
-msgid "North Component"
-msgstr "Composante nord"
-
-#: src/WmmUIDialog.cpp:53
-#: src/WmmUIDialog.cpp:139
+#
 msgid "Y"
 msgstr "Y"
 
-#: src/WmmUIDialog.cpp:55
-#: src/WmmUIDialog.cpp:141
-msgid "East Component"
-msgstr "Composante est"
-
-#: src/WmmUIDialog.cpp:62
-#: src/WmmUIDialog.cpp:148
+#
 msgid "Z"
 msgstr "Z"
 
-#: src/WmmUIDialog.cpp:64
-#: src/WmmUIDialog.cpp:150
-msgid "Vertical Component"
-msgstr "Composante verticale"
-
-#
-#
-#: src/WmmUIDialog.cpp:71
-#: src/WmmUIDialog.cpp:157
-msgid "Incl"
-msgstr "Inclinaison"
-
-#: src/WmmUIDialog.cpp:73
-#: src/WmmUIDialog.cpp:159
-msgid "(DIP) - Geomagnetic Inclination "
-msgstr "DIP : Inclinaison géo-magnétique"
-
-#: src/WmmUIDialog.cpp:89
-#: src/WmmUIDialog.cpp:175
-msgid "Vari"
-msgstr "Variation"
-
-#: src/WmmUIDialog.cpp:91
-#: src/WmmUIDialog.cpp:177
-msgid "Magnetic Variation"
-msgstr "Variation magnétique"
-
-#
-#
-#: src/WmmUIDialog.cpp:105
-msgid "Cursor"
-msgstr "Curseur :"
-
-#: src/WmmUIDialog.cpp:208
-msgid "Extended"
-msgstr "Etendu"
-
-#: src/WmmUIDialog.cpp:208
-msgid "Variation only"
-msgstr "Variation uniquement"
-
-#: src/WmmUIDialog.cpp:210
-msgid "Display mode"
-msgstr ""
-
-#: src/WmmUIDialog.cpp:214
-msgid "Show also data at cursor position"
-msgstr "Montrer aussi pour la position du curseur"
-
-#: src/WmmUIDialog.cpp:218
-msgid "Window transparency"
-msgstr "Transparence de la fenêtre"
-
-#~ msgid "View"
-#~ msgstr "Vue "

@@ -1,1 +1,0 @@
-xgettext.exe --from-code=utf-8 --force-po --output=C:/WORK/opencpn/source/opencpn/plugins/wmm_pi/po/wmm_pi.pot --keyword=_ --width=80 --files-from=C:/WORK/opencpn/source/opencpn/plugins/wmm_pi/po/POTFILES.in
