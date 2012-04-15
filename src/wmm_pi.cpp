@@ -581,6 +581,7 @@ void wmm_pi::ShowPreferencesDialog( wxWindow* parent )
 
             SaveConfig();
       }
+      delete dialog;
 }
 
 
