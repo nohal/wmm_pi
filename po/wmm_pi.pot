@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: wmm_pi 2.6.1511\n"
+"Project-Id-Version: wmm_pi 2.6.1624\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-14 16:42+0100\n"
+"POT-Creation-Date: 2012-04-25 14:51+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -35,38 +35,43 @@ msgid ""
 "location you can find in the OpenCPN logfile."
 msgstr ""
 
-#: src/wmm_pi.cpp:311 src/wmm_pi.cpp:347
+#: src/wmm_pi.cpp:298 src/wmm_pi.cpp:367
 msgid "Error, see log."
 msgstr ""
 
-#: src/wmm_pi.cpp:329 src/wmm_pi.cpp:330 src/wmm_pi.cpp:331 src/wmm_pi.cpp:332
-#: src/wmm_pi.cpp:333 src/wmm_pi.cpp:364 src/wmm_pi.cpp:365 src/wmm_pi.cpp:366
-#: src/wmm_pi.cpp:367 src/wmm_pi.cpp:368
+#: src/wmm_pi.cpp:316 src/wmm_pi.cpp:317 src/wmm_pi.cpp:318 src/wmm_pi.cpp:319
+#: src/wmm_pi.cpp:320 src/wmm_pi.cpp:370 src/wmm_pi.cpp:371 src/wmm_pi.cpp:372
+#: src/wmm_pi.cpp:373 src/wmm_pi.cpp:374
 #, c-format
 msgid "%-9.1lf nT"
 msgstr ""
 
-#: src/wmm_pi.cpp:334
+#: src/wmm_pi.cpp:321
 #, c-format
 msgid "%-5.1lf\\u00B0 (%s)"
 msgstr ""
 
-#: src/wmm_pi.cpp:335
+#: src/wmm_pi.cpp:322
 #, c-format
 msgid "%-5.1lf\\u00B0"
 msgstr ""
 
-#: src/wmm_pi.cpp:499
+#: src/wmm_pi.cpp:357
+#, c-format
+msgid "%-5.1lf"
+msgstr ""
+
+#: src/wmm_pi.cpp:502
 #, c-format
 msgid "%u\\u00B0%u' W"
 msgstr ""
 
-#: src/wmm_pi.cpp:501
+#: src/wmm_pi.cpp:504
 #, c-format
 msgid "%u\\u00B0%u' E"
 msgstr ""
 
-#: src/wmm_pi.cpp:556 src/WmmUIDialog.h:97
+#: src/wmm_pi.cpp:561 src/WmmUIDialog.h:98
 msgid "WMM Preferences"
 msgstr ""
 
@@ -150,6 +155,10 @@ msgstr ""
 msgid "Show also data at cursor position"
 msgstr ""
 
-#: src/WmmUIDialog.cpp:218
+#: src/WmmUIDialog.cpp:217
+msgid "Show data in toolbar icon"
+msgstr ""
+
+#: src/WmmUIDialog.cpp:221
 msgid "Window transparency"
 msgstr ""

@@ -214,6 +214,9 @@ WmmPrefsDialog::WmmPrefsDialog( wxWindow* parent, wxWindowID id, const wxString&
 	m_cbShowAtCursor = new wxCheckBox( this, wxID_ANY, _("Show also data at cursor position"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer2->Add( m_cbShowAtCursor, 0, wxALL, 5 );
 	
+      m_cbLiveIcon = new wxCheckBox( this, wxID_ANY, _("Show data in toolbar icon"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer2->Add( m_cbLiveIcon, 0, wxALL, 5 );
+
 	wxStaticBoxSizer* sbSizer4;
 	sbSizer4 = new wxStaticBoxSizer( new wxStaticBox( this, wxID_ANY, _("Window transparency") ), wxVERTICAL );
 	

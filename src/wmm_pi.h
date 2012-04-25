@@ -38,10 +38,10 @@
 #include <wx/fileconf.h>
 
 #define     PLUGIN_VERSION_MAJOR    0
-#define     PLUGIN_VERSION_MINOR    4
+#define     PLUGIN_VERSION_MINOR    5
 
 #define     MY_API_VERSION_MAJOR    1
-#define     MY_API_VERSION_MINOR    6
+#define     MY_API_VERSION_MINOR    8
 
 #include "../../../include/ocpn_plugin.h"
 
@@ -59,7 +59,7 @@
 
 #define WMM_TOOL_POSITION    -1          // Request default positioning of toolbar tool
 
-class wmm_pi : public opencpn_plugin_16
+class wmm_pi : public opencpn_plugin_18
 {
 public:
       wmm_pi(void *ppimgr);
@@ -119,6 +119,7 @@ private:
       int               m_display_width, m_display_height;
       int               m_iViewType;
       bool              m_bShowAtCursor;
+      bool              m_bShowLiveIcon;
       int               m_iOpacity;
 
       int               m_leftclick_tool_id;

@@ -92,6 +92,7 @@ class WmmPrefsDialog : public wxDialog
 	public:
 		wxRadioBox* m_rbViewType;
 		wxCheckBox* m_cbShowAtCursor;
+            wxCheckBox* m_cbLiveIcon;
 		wxSlider* m_sOpacity;
 		
 		WmmPrefsDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("WMM Preferences"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxDefaultSize, long style = wxCAPTION|wxDEFAULT_DIALOG_STYLE ); 

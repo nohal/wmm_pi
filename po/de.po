@@ -7,13 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-14 16:42+0100\n"
+"POT-Creation-Date: 2012-04-25 14:51+0200\n"
 "PO-Revision-Date: 2011-05-16 09:12+0100\n"
 "Last-Translator: Gunther Pilz <gunther.pilz@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+#
+#, fuzzy, c-format
+msgid "%-5.1lf"
+msgstr "%-9.1lf nT"
 #
 #, c-format
 msgid "%-5.1lf\\u00B0"
@@ -77,6 +81,9 @@ msgstr "Nord Komponente"
 msgid "Show also data at cursor position"
 msgstr "Zeige auch Daten der Cursorposition"
 #
+msgid "Show data in toolbar icon"
+msgstr ""
+#
 msgid "Total Intensity"
 msgstr "Gesamt-Intensität"
 #
@@ -127,6 +134,7 @@ msgstr "Y"
 #
 msgid "Z"
 msgstr "Z"
+#
 #
 #~ msgid "View"
 #~ msgstr "Anzeige"

@@ -63,7 +63,7 @@ extern "C" DECL_EXP void destroy_pi(opencpn_plugin* p)
 //---------------------------------------------------------------------------------------------------------
 
 wmm_pi::wmm_pi(void *ppimgr)
-      :opencpn_plugin_16(ppimgr)
+      :opencpn_plugin_18(ppimgr)
 {
       // Create the PlugIn icons
       initialize_images();
@@ -327,13 +327,6 @@ void wmm_pi::SetCursorLatLon(double lat, double lon)
 
 void wmm_pi::SetPositionFix(PlugIn_Position_Fix &pfix)
 {
-      if (NULL == m_pWmmDialog || !m_pWmmDialog->IsShown())
-            return;
-      if (!m_buseable)
-      {
-            m_pWmmDialog->m_tbD->SetValue(_("Error, see log."));
-            return;
-      }
       CoordGeodetic.lambda = pfix.Lon;
       CoordGeodetic.phi = pfix.Lat;
       CoordGeodetic.HeightAboveEllipsoid = 0;
@@ -348,6 +341,32 @@ void wmm_pi::SetPositionFix(PlugIn_Position_Fix &pfix)
       WMM_Geomag(Ellip, CoordSpherical, CoordGeodetic, TimedMagneticModel, &GeoMagneticElements);   /* Computes the geoMagnetic field elements and their time change*/
       WMM_CalculateGridVariation(CoordGeodetic,&GeoMagneticElements);
       //WMM_PrintUserData(GeoMagneticElements,CoordGeodetic, UserDate, TimedMagneticModel, &Geoid);     /* Print the results */
+      
+      m_boatVariation = GeoMagneticElements;
+      SendBoatVariation();
+
+      if(m_bShowLiveIcon)
+      {
+            wxBitmap icon(_img_wmm_live->GetWidth(), _img_wmm_live->GetHeight());
+            wxMemoryDC dc;
+            dc.SelectObject(icon);
+            dc.DrawBitmap(*_img_wmm_live, 0, 0, true);
+            wxColour cf;
+            GetGlobalColor(_T("CHBLK"), &cf);
+            dc.SetTextForeground(cf);
+            wxString t = wxString::Format(_("%-5.1lf"), GeoMagneticElements.Decl);
+            wxSize s = dc.GetTextExtent(t);
+            dc.DrawText(t, (_img_wmm_live->GetWidth() - s.GetWidth()) / 2, (_img_wmm_live->GetHeight() - s.GetHeight()) / 2);
+            SetToolbarToolBitmaps(m_leftclick_tool_id, &icon, &icon);
+      }
+
+      if (NULL == m_pWmmDialog || !m_pWmmDialog->IsShown())
+            return;
+      if (!m_buseable)
+      {
+            m_pWmmDialog->m_tbD->SetValue(_("Error, see log."));
+            return;
+      }
       m_pWmmDialog->m_tbF->SetValue(wxString::Format(_("%-9.1lf nT"), GeoMagneticElements.F));
       m_pWmmDialog->m_tbH->SetValue(wxString::Format(_("%-9.1lf nT"), GeoMagneticElements.H));
       m_pWmmDialog->m_tbX->SetValue(wxString::Format(_("%-9.1lf nT"), GeoMagneticElements.X));
@@ -355,9 +374,6 @@ void wmm_pi::SetPositionFix(PlugIn_Position_Fix &pfix)
       m_pWmmDialog->m_tbZ->SetValue(wxString::Format(_("%-9.1lf nT"), GeoMagneticElements.Z));
       m_pWmmDialog->m_tbD->SetValue(wxString::Format(_T("%-5.1lf\u00B0 (%s)"), GeoMagneticElements.Decl, AngleToText(GeoMagneticElements.Decl).c_str()));
       m_pWmmDialog->m_tbI->SetValue(wxString::Format(_T("%-5.1lf\u00B0"), GeoMagneticElements.Incl));
-
-      m_boatVariation = GeoMagneticElements;
-      SendBoatVariation();
 }
 
 //Demo implementation of response mechanism
@@ -497,6 +513,7 @@ bool wmm_pi::LoadConfig(void)
             pConf->SetPath ( _T( "/Settings/WMM" ) );
             pConf->Read ( _T( "ViewType" ),  &m_iViewType, 1 );
             pConf->Read ( _T( "ShowAtCursor" ),  &m_bShowAtCursor, 1 );
+            pConf->Read ( _T( "ShowLiveIcon" ),  &m_bShowLiveIcon, 1 );
             pConf->Read ( _T( "Opacity" ),  &m_iOpacity, 255 );
 
             m_wmm_dialog_x =  pConf->Read ( _T ( "DialogPosX" ), 20L );
@@ -525,6 +542,7 @@ bool wmm_pi::SaveConfig(void)
             pConf->SetPath ( _T ( "/Settings/WMM" ) );
             pConf->Write ( _T ( "ViewType" ), m_iViewType );
             pConf->Write ( _T ( "ShowAtCursor" ), m_bShowAtCursor );
+            pConf->Write ( _T ( "ShowLiveIcon" ), m_bShowLiveIcon );
             pConf->Write ( _T ( "Opacity" ), m_iOpacity );
 
             pConf->Write ( _T ( "DialogPosX" ),   m_wmm_dialog_x );

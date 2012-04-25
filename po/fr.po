@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: opencpn\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-14 16:42+0100\n"
+"POT-Creation-Date: 2012-04-25 14:51+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Pavel Kalian <pavel@kalian.cz>\n"
 "Language-Team: \n"
@@ -11,122 +11,101 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Language: French\n"
 "X-Poedit-Country: FRANCE\n"
-
+#
+#, fuzzy, c-format
+msgid "%-5.1lf"
+msgstr "%-9.1lf nT"
 #
 #, c-format
 msgid "%-5.1lf\\u00B0"
 msgstr "%-5.1lf\\u00B0"
-
 #
 #, c-format
 msgid "%-5.1lf\\u00B0 (%s)"
 msgstr "%-5.1lf\\u00B0 (%s)"
-
 #
 #, c-format
 msgid "%-9.1lf nT"
 msgstr "%-9.1lf nT"
-
 #
 #, c-format
 msgid "%u\\u00B0%u' E"
 msgstr "%u\\u00B0%u' E"
-
 #
 #, c-format
 msgid "%u\\u00B0%u' W"
 msgstr "%u\\u00B0%u' O"
-
 #
 msgid "(DIP) - Geomagnetic Inclination "
 msgstr "DIP : Inclinaison géo-magnétique"
-
 #
 msgid "Boat"
 msgstr "Bateau :"
-
 #
 #
 msgid "Cursor"
 msgstr "Curseur :"
-
 #
 msgid "Display mode"
 msgstr ""
-
 #
 msgid "East Component"
 msgstr "Composante est"
-
 #
 msgid "Error, see log."
 msgstr "Erreur. Voir dans le fichier log."
-
 #
 msgid "Extended"
 msgstr "Etendu"
-
 #
 msgid "F"
 msgstr "Total :"
-
 #
 msgid "H"
 msgstr "Horizontal :"
-
 #
 msgid "Horizontal Intensity"
 msgstr "Valeur horizontale"
-
 #
 #
 msgid "Incl"
 msgstr "Inclinaison"
-
 #
 msgid "Magnetic Variation"
 msgstr "Variation magnétique"
-
 #
 msgid "North Component"
 msgstr "Composante nord"
-
 #
 msgid "Show also data at cursor position"
 msgstr "Montrer aussi pour la position du curseur"
-
+#
+msgid "Show data in toolbar icon"
+msgstr ""
 #
 msgid "Total Intensity"
 msgstr "Valeur totale"
-
 #
 msgid "Vari"
 msgstr "Variation"
-
 #
 msgid "Variation only"
 msgstr "Variation uniquement"
-
 #
 msgid "Vertical Component"
 msgstr "Composante verticale"
-
 #
 msgid "WMM"
 msgstr "Variations magnétiques"
-
 #
 msgid "WMM Preferences"
 msgstr "Préférences"
-
 #
 msgid "Window transparency"
 msgstr "Transparence de la fenêtre"
-
 #
 msgid "World Magnetic Model PlugIn for OpenCPN"
 msgstr "Variation magnétique mondiale pour OpenCPN."
-
 #
 msgid ""
 "World Magnetic Model PlugIn for OpenCPN\n"
@@ -143,17 +122,14 @@ msgstr ""
 "Le modèle livré WMM2010 expire le 31 Décembre 2014.\n"
 "Après cela, si la nouvelle version du plugin n'est pas publiée, il faudra : \n"
 "- vous procurer un nouveau fichier WMM.COF sur le site de  la NOAA\n"
-"- le placer dans le dossier XXXXX dont l'adresse figure dans le fichier opencpn.ini."
-
+"- le placer dans le dossier XXXXX dont l'adresse figure dans le fichier "
+"opencpn.ini."
 #
 msgid "X"
 msgstr "X"
-
 #
 msgid "Y"
 msgstr "Y"
-
 #
 msgid "Z"
 msgstr "Z"
-
