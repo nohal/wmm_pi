@@ -354,7 +354,7 @@ void wmm_pi::SetPositionFix(PlugIn_Position_Fix &pfix)
             wxColour cf;
             GetGlobalColor(_T("CHBLK"), &cf);
             dc.SetTextForeground(cf);
-            wxString t = wxString::Format(_("%-5.1lf"), GeoMagneticElements.Decl);
+            wxString t = wxString::Format(_("%.1f"), GeoMagneticElements.Decl);
             wxSize s = dc.GetTextExtent(t);
             dc.DrawText(t, (_img_wmm_live->GetWidth() - s.GetWidth()) / 2, (_img_wmm_live->GetHeight() - s.GetHeight()) / 2);
             SetToolbarToolBitmaps(m_leftclick_tool_id, &icon, &icon);
