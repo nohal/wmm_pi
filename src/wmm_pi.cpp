@@ -566,12 +566,14 @@ void wmm_pi::ShowPreferencesDialog( wxWindow* parent )
 
       dialog->m_rbViewType->SetSelection(m_iViewType);
       dialog->m_cbShowAtCursor->SetValue(m_bShowAtCursor);
+      dialog->m_cbLiveIcon->SetValue(m_bShowLiveIcon);
       dialog->m_sOpacity->SetValue(m_iOpacity);
 
       if(dialog->ShowModal() == wxID_OK)
       {
             m_iViewType = dialog->m_rbViewType->GetSelection();
             m_bShowAtCursor = dialog->m_cbShowAtCursor->GetValue();
+            m_bShowLiveIcon = dialog->m_cbLiveIcon->GetValue();
             m_iOpacity = dialog->m_sOpacity->GetValue();
 
             RearangeWindow();
