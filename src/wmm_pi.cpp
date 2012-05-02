@@ -161,6 +161,8 @@ bool wmm_pi::DeInit(void)
       WMM_FreeMagneticModelMemory(MagneticModel);
       WMM_FreeMagneticModelMemory(TimedMagneticModel);
 
+      RemovePlugInTool(m_leftclick_tool_id);
+
       /*if (Geoid.GeoidHeightBuffer)
       {
             free(Geoid.GeoidHeightBuffer);
@@ -350,6 +352,7 @@ void wmm_pi::SetPositionFix(PlugIn_Position_Fix &pfix)
       wxString NewVal = wxString::Format(_("%.1f"), GeoMagneticElements.Decl);
       if(m_bShowLiveIcon && m_LastVal != NewVal)
       {
+            m_LastVal = NewVal;
             wxBitmap icon(_img_wmm_live->GetWidth(), _img_wmm_live->GetHeight());
             wxMemoryDC dc;
             dc.SelectObject(icon);
