@@ -122,6 +122,8 @@ private:
       bool              m_bShowLiveIcon;
       int               m_iOpacity;
 
+      wxString          m_LastVal;
+
       int               m_leftclick_tool_id;
 
       wxString          AngleToText(double angle);

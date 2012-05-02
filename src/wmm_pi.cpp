@@ -90,6 +90,8 @@ int wmm_pi::Init(void)
 
       m_buseable = true;
 
+      m_LastVal = wxEmptyString;
+
       //    WMM initialization
       /* Memory allocation */
 	int NumTerms = ( ( WMM_MAX_MODEL_DEGREES + 1 ) * ( WMM_MAX_MODEL_DEGREES + 2 ) / 2 );    /* WMM_MAX_MODEL_DEGREES is defined in WMM_Header.h */
@@ -345,7 +347,8 @@ void wmm_pi::SetPositionFix(PlugIn_Position_Fix &pfix)
       m_boatVariation = GeoMagneticElements;
       SendBoatVariation();
 
-      if(m_bShowLiveIcon)
+      wxString NewVal = wxString::Format(_("%.1f"), GeoMagneticElements.Decl);
+      if(m_bShowLiveIcon && m_LastVal != NewVal)
       {
             wxBitmap icon(_img_wmm_live->GetWidth(), _img_wmm_live->GetHeight());
             wxMemoryDC dc;
@@ -354,9 +357,8 @@ void wmm_pi::SetPositionFix(PlugIn_Position_Fix &pfix)
             wxColour cf;
             GetGlobalColor(_T("CHBLK"), &cf);
             dc.SetTextForeground(cf);
-            wxString t = wxString::Format(_("%.1f"), GeoMagneticElements.Decl);
-            wxSize s = dc.GetTextExtent(t);
-            dc.DrawText(t, (_img_wmm_live->GetWidth() - s.GetWidth()) / 2, (_img_wmm_live->GetHeight() - s.GetHeight()) / 2);
+            wxSize s = dc.GetTextExtent(NewVal);
+            dc.DrawText(NewVal, (_img_wmm_live->GetWidth() - s.GetWidth()) / 2, (_img_wmm_live->GetHeight() - s.GetHeight()) / 2);
             SetToolbarToolBitmaps(m_leftclick_tool_id, &icon, &icon);
       }
 
