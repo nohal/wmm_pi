@@ -1,5 +1,6 @@
 World Magnetic Model Plugin for OpenCPN
 =======================================
+Implements http://www.ngdc.noaa.gov/geomag/WMM/DoDWMM.shtml as a plugin for OpenCPN.
 
 Compiling
 =========
