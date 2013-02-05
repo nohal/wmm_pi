@@ -43,9 +43,13 @@
 #define ATanH(x)	    (0.5 * log((1 + x) / (1 - x)))
 
 
+#ifndef TRUE
 #define TRUE            ((int)1)
-#define FALSE           ((int)0)
+#endif
 
+#ifndef FALSE
+#define FALSE           ((int)0)
+#endif
 
 #define WMM_MAX_MODEL_DEGREES	12
 #define WMM_MAX_SECULAR_VARIATION_MODEL_DEGREES 12
@@ -402,7 +406,7 @@ char *trim(char *str);
 void assignheadervalues(WMMtype_MagneticModel *model, char values[][MAXLINELENGTH]);
 int WMM_readMagneticModel_ISO(char *filename, WMMtype_MagneticModel *magneticmodels[],int array_size);
 
-char geoiddatapath[1024];
+extern char geoiddatapath[1024];
 
 
 #endif /*WMMHEADER_H*/

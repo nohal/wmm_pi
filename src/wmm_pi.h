@@ -49,6 +49,7 @@
 #include "WMM_SubLibrary.c"
 #include "WmmUIDialog.h"
 #include "WMM_COF.h"
+#include "MagneticPlotMap.h"
 
 #include "jsonreader.h"
 #include "jsonwriter.h"
@@ -58,6 +59,29 @@
 //----------------------------------------------------------------------------------------------------------
 
 #define WMM_TOOL_POSITION    -1          // Request default positioning of toolbar tool
+class wmm_pi;
+
+class WmmUIDialog : public WmmUIDialogBase
+{		
+public:
+    WmmUIDialog( wmm_pi &_wmm_pi, wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("WMM"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 250,495 ), long style = wxCAPTION|wxDEFAULT_DIALOG_STYLE|wxTAB_TRAVERSAL ) : WmmUIDialogBase( parent, id, title, pos, size, style ), m_wmm_pi(_wmm_pi) {}
+
+    void EnablePlotChanged( wxCommandEvent& event );
+    void PlotSettings( wxCommandEvent& event );
+	
+protected:
+    wmm_pi &m_wmm_pi;
+};
+
+class WmmPlotSettingsDialog : public WmmPlotSettingsDialogBase
+{
+public:
+WmmPlotSettingsDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Magnetic Plot Settings"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 375,180 ), long style = wxDEFAULT_DIALOG_STYLE ) : WmmPlotSettingsDialogBase(parent, id, title, pos, size, style) {}
+
+    void About( wxCommandEvent& event );
+    void Save( wxCommandEvent& event ) { EndDialog(wxID_OK); }
+    void Cancel( wxCommandEvent& event ) { EndDialog(wxID_CANCEL); }
+};
 
 class wmm_pi : public opencpn_plugin_18
 {
@@ -81,21 +105,29 @@ public:
       void SetCursorLatLon(double lat, double lon);
       void SetPositionFix(PlugIn_Position_Fix &pfix);
 
+      void RenderOverlayBoth(wxDC *dc, PlugIn_ViewPort *vp);
+      bool RenderOverlay(wxDC &dc, PlugIn_ViewPort *vp);
+      bool RenderGLOverlay(wxGLContext *pcontext, PlugIn_ViewPort *vp);
+      void RecomputePlot();
+
       int GetToolbarToolCount(void);
       void ShowPreferencesDialog( wxWindow* parent );
+      void ShowPlotSettingsDialog( wxCommandEvent& event );
 
       void OnToolbarToolCallback(int id);
 
 //    Optional plugin overrides
       void SetColorScheme(PI_ColorScheme cs);
       void SetPluginMessage(wxString &message_id, wxString &message_body);
-      
+
+      void SetShowPlot(bool showplot) { m_bShowPlot = showplot; }
 
 //    Other public methods
       void SetWmmDialogX    (int x){ m_wmm_dialog_x = x;};
       void SetWmmDialogY    (int x){ m_wmm_dialog_y = x;}
 
       void OnWmmDialogClose();
+      void ShowPlotSettings();
 
 //    WMM Declarations
       WMMtype_MagneticModel *MagneticModel, *TimedMagneticModel;
@@ -107,9 +139,10 @@ public:
 	WMMtype_Geoid Geoid;
 	wxString filename;
 
+      wxWindow         *m_parent_window;
+
 private:
       wxFileConfig     *m_pconfig;
-      wxWindow         *m_parent_window;
       bool              LoadConfig(void);
       bool              SaveConfig(void);
 
@@ -128,7 +161,13 @@ private:
 
       wxString          AngleToText(double angle);
 
-      void              RearangeWindow();
+      bool              m_bCachedPlotOk, m_bShowPlot;
+      MagneticPlotMap   m_DeclinationMap, m_InclinationMap, m_FieldStrengthMap;
+      wxDateTime        m_MapDate;
+      int               m_MapStep;
+      int               m_MapPoleAccuracy;
+
+      void              RearrangeWindow();
       wxString          m_wmm_dir;
       bool              m_buseable, m_busegeoid;
 
@@ -138,6 +177,8 @@ private:
 
       WMMtype_GeoMagneticElements m_cursorVariation;
       WMMtype_GeoMagneticElements m_boatVariation;
+
+      bool m_bComputingPlot;
 };
 
 int WMM_setupMagneticModel(char *data, WMMtype_MagneticModel * MagneticModel);

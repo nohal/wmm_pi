@@ -60,6 +60,8 @@ FIND_PACKAGE(Gettext REQUIRED)
 SET(SRC_WMM
             src/wmm_pi.h
             src/wmm_pi.cpp
+            src/MagneticPlotMap.h
+            src/MagneticPlotMap.cpp
             src/icons.h
             src/icons.cpp
 	    src/WMMHeader.h

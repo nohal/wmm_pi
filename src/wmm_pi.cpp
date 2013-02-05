@@ -35,7 +35,6 @@
 
 #include "wmm_pi.h"
 
-
 // the class factories, used to create and destroy instances of the PlugIn
 
 extern "C" DECL_EXP opencpn_plugin* create_pi(void *ppimgr)
@@ -56,6 +55,43 @@ extern "C" DECL_EXP void destroy_pi(opencpn_plugin* p)
 
 #include "icons.h"
 
+void WmmUIDialog::EnablePlotChanged( wxCommandEvent& event )
+{
+    if(m_cbEnablePlot->GetValue())
+        m_wmm_pi.RecomputePlot();
+    m_wmm_pi.SetShowPlot(m_cbEnablePlot->GetValue());
+    RequestRefresh( m_wmm_pi.m_parent_window );
+}
+
+void WmmUIDialog::PlotSettings( wxCommandEvent& event )
+{
+    m_wmm_pi.ShowPlotSettings();
+}
+
+void WmmPlotSettingsDialog::About( wxCommandEvent& event )
+{
+    wxString msg0(
+            _("\n\
+World Magnetic Model Plotting allows users to cross reference the\
+ magnetic deviation values printed on many raster charts.\n\n\
+Declination is the angle between true and magnetic north.\n\
+Inclination is the vertical angle of the magnetic field.\n\
+\t(+- 90 at the magnetic poles)\n\
+Field Strength is the magnetic field in nano tesla from\n\
+\t20000 to 66000\n\n\
+The plotted lines are similar to a topographic map.  The \
+space between them can be adjusted; more space takes \
+less time to calculate.\n\n\
+The Step size and Pole accuracy sliders allow a trade off \
+for speed vs computation time.\n\n\
+The World Magnetic Model Plugin was written by Pavel Kalian \
+and extended by Sean D'Epagnier to support plotting."));
+
+    wxMessageDialog dlg( this, msg0, _("WMM Plugin"), wxOK );
+
+    dlg.ShowModal();
+}
+
 //---------------------------------------------------------------------------------------------------------
 //
 //          PlugIn initialization and de-init
@@ -63,7 +99,11 @@ extern "C" DECL_EXP void destroy_pi(opencpn_plugin* p)
 //---------------------------------------------------------------------------------------------------------
 
 wmm_pi::wmm_pi(void *ppimgr)
-      :opencpn_plugin_18(ppimgr)
+    : opencpn_plugin_18(ppimgr),
+      m_DeclinationMap(DECLINATION, MagneticModel, TimedMagneticModel, &Ellip),
+      m_InclinationMap(INCLINATION, MagneticModel, TimedMagneticModel, &Ellip),
+      m_FieldStrengthMap(FIELD_STRENGTH, MagneticModel, TimedMagneticModel, &Ellip),
+      m_bComputingPlot(false)
 {
       // Create the PlugIn icons
       initialize_images();
@@ -134,10 +174,12 @@ int wmm_pi::Init(void)
 
       m_pWmmDialog = NULL;
 
-      return (WANTS_CURSOR_LATLON       |
+      return (WANTS_OVERLAY_CALLBACK |
+              WANTS_OPENGL_OVERLAY_CALLBACK |
+              WANTS_CURSOR_LATLON       |
               WANTS_TOOLBAR_CALLBACK    |
               INSTALLS_TOOLBAR_TOOL     |
-	        WANTS_NMEA_EVENTS         |
+              WANTS_NMEA_EVENTS         |
               WANTS_PREFERENCES         |
               WANTS_CONFIG              |
               WANTS_PLUGIN_MESSAGING
@@ -231,7 +273,7 @@ void wmm_pi::SetColorScheme(PI_ColorScheme cs)
       DimeWindow(m_pWmmDialog);
 }
 
-void wmm_pi::RearangeWindow()
+void wmm_pi::RearrangeWindow()
 {
       if (NULL == m_pWmmDialog)
             return;
@@ -277,11 +319,11 @@ void wmm_pi::OnToolbarToolCallback(int id)
 {
       if(NULL == m_pWmmDialog)
       {
-            m_pWmmDialog = new WmmUIDialog(m_parent_window);
+            m_pWmmDialog = new WmmUIDialog(*this, m_parent_window);
             m_pWmmDialog->Move(wxPoint(m_wmm_dialog_x, m_wmm_dialog_y));
       }
 
-      RearangeWindow();
+      RearrangeWindow();
       /*m_pWmmDialog->SetMaxSize(m_pWmmDialog->GetSize());
       m_pWmmDialog->SetMinSize(m_pWmmDialog->GetSize());*/
       m_pWmmDialog->Show(!m_pWmmDialog->IsShown());
@@ -289,6 +331,59 @@ void wmm_pi::OnToolbarToolCallback(int id)
             SendPluginMessage(_T("WMM_WINDOW_SHOWN"), wxEmptyString);
       else
             SendPluginMessage(_T("WMM_WINDOW_HIDDEN"), wxEmptyString);
+}
+
+void wmm_pi::RenderOverlayBoth(wxDC *dc, PlugIn_ViewPort *vp)
+{
+    if(!m_bShowPlot)
+        return;
+
+    m_DeclinationMap.Plot(dc, vp, wxColour(255, 0, 90, 220));
+    m_InclinationMap.Plot(dc, vp, wxColour(60, 255, 30, 220));
+    m_FieldStrengthMap.Plot(dc, vp, wxColour(0, 60, 255, 220));
+}
+
+bool wmm_pi::RenderOverlay(wxDC &dc, PlugIn_ViewPort *vp)
+{
+    RenderOverlayBoth(&dc, vp);
+    return true;
+}
+
+bool wmm_pi::RenderGLOverlay(wxGLContext *pcontext, PlugIn_ViewPort *vp)
+{
+    glPushAttrib(GL_COLOR_BUFFER_BIT | GL_LINE_BIT | GL_ENABLE_BIT | GL_POLYGON_BIT | GL_HINT_BIT );
+    
+    glEnable( GL_LINE_SMOOTH );
+    glEnable( GL_BLEND );
+    glBlendFunc( GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA );
+    glHint( GL_LINE_SMOOTH_HINT, GL_NICEST );
+
+    RenderOverlayBoth(0, vp);
+
+    glPopAttrib();
+
+    return true;
+}
+
+void wmm_pi::RecomputePlot()
+{
+    if(m_bCachedPlotOk)
+        return;
+
+    if(m_bComputingPlot)
+        return;
+    m_bComputingPlot = true;
+
+    if(!m_DeclinationMap.Recompute(m_MapDate) ||
+       !m_InclinationMap.Recompute(m_MapDate) ||
+       !m_FieldStrengthMap.Recompute(m_MapDate)) {
+        m_bShowPlot = false;
+        if(m_pWmmDialog)
+            m_pWmmDialog->m_cbEnablePlot->SetValue(false);
+    } else
+        m_bCachedPlotOk = true;
+
+    m_bComputingPlot = false;
 }
 
 void wmm_pi::SetCursorLatLon(double lat, double lon)
@@ -528,6 +623,25 @@ bool wmm_pi::LoadConfig(void)
                   m_wmm_dialog_x = 5;
             if((m_wmm_dialog_y < 0) || (m_wmm_dialog_y > m_display_height))
                   m_wmm_dialog_y = 5;
+
+            pConf->SetPath ( _T( "/Settings/WMM/Plot" ) );
+            pConf->Read ( _T( "Declination" ), &m_DeclinationMap.m_bEnabled, 1);
+            pConf->Read ( _T( "DeclinationSpacing" ), &m_DeclinationMap.m_Spacing, 10);
+            pConf->Read ( _T( "Inclination" ), &m_InclinationMap.m_bEnabled, 0);
+            pConf->Read ( _T( "InclinationSpacing" ), &m_InclinationMap.m_Spacing, 10);
+            pConf->Read ( _T( "FieldStrength" ), &m_FieldStrengthMap.m_bEnabled, 0);
+            pConf->Read ( _T( "FieldStrengthSpacing" ), &m_FieldStrengthMap.m_Spacing, 10000);
+
+            pConf->Read ( _T( "StepSize" ), &m_MapStep, 6);
+            pConf->Read ( _T( "PoleAccuracy" ), &m_MapPoleAccuracy, 2);
+            m_DeclinationMap.ConfigureAccuracy(m_MapStep, m_MapPoleAccuracy);
+            m_InclinationMap.ConfigureAccuracy(m_MapStep, m_MapPoleAccuracy);
+            m_FieldStrengthMap.ConfigureAccuracy(m_MapStep, m_MapPoleAccuracy);
+
+            m_MapDate = wxDateTime::Now(); /* always reset to current date */
+
+            m_bCachedPlotOk = false;
+
             pConf->SetPath ( _T ( "/Directories" ) );
             wxString def;
             def = ::wxGetCwd() + _T("/plugins");
@@ -552,6 +666,17 @@ bool wmm_pi::SaveConfig(void)
 
             pConf->Write ( _T ( "DialogPosX" ),   m_wmm_dialog_x );
             pConf->Write ( _T ( "DialogPosY" ),   m_wmm_dialog_y );
+
+            pConf->SetPath ( _T( "/Settings/WMM/Plot" ) );
+            pConf->Write ( _T( "Declination" ), m_DeclinationMap.m_bEnabled);
+            pConf->Write ( _T( "DeclinationSpacing" ), m_DeclinationMap.m_Spacing);
+            pConf->Write ( _T( "Inclination" ), m_InclinationMap.m_bEnabled);
+            pConf->Write ( _T( "InclinationSpacing" ), m_InclinationMap.m_Spacing);
+            pConf->Write ( _T( "FieldStrength" ), m_FieldStrengthMap.m_bEnabled);
+            pConf->Write ( _T( "FieldStrengthSpacing" ), m_FieldStrengthMap.m_Spacing);
+            pConf->Write ( _T( "StepSize" ), m_MapStep);
+            pConf->Write ( _T( "PoleAccuracy" ), m_MapPoleAccuracy);
+
             pConf->SetPath ( _T ( "/Directories" ) );
             pConf->Write ( _T ( "WMMDataLocation" ), m_wmm_dir );
 
@@ -581,13 +706,57 @@ void wmm_pi::ShowPreferencesDialog( wxWindow* parent )
             m_bShowLiveIcon = dialog->m_cbLiveIcon->GetValue();
             m_iOpacity = dialog->m_sOpacity->GetValue();
 
-            RearangeWindow();
+            RearrangeWindow();
 
             SaveConfig();
       }
       delete dialog;
 }
 
+void wmm_pi::ShowPlotSettings()
+{
+      WmmPlotSettingsDialog *dialog = new WmmPlotSettingsDialog( m_parent_window );
+      dialog->Fit();
+      wxColour cl;
+      GetGlobalColor(_T("DILG1"), &cl);
+      dialog->SetBackgroundColour(cl);
+
+      dialog->m_cbDeclination->SetValue(m_DeclinationMap.m_bEnabled);
+      dialog->m_scDeclinationSpacing->SetValue(m_DeclinationMap.m_Spacing);
+      dialog->m_cbInclination->SetValue(m_InclinationMap.m_bEnabled);
+      dialog->m_scInclinationSpacing->SetValue(m_InclinationMap.m_Spacing);
+      dialog->m_cbFieldStrength->SetValue(m_FieldStrengthMap.m_bEnabled);
+      dialog->m_scFieldStrengthSpacing->SetValue(m_FieldStrengthMap.m_Spacing);
+      dialog->m_dpDate->SetValue(m_MapDate);
+      dialog->m_sStep->SetValue(m_MapStep);
+      dialog->m_sPoleAccuracy->SetValue(m_MapPoleAccuracy);
+
+      if(dialog->ShowModal() == wxID_OK)
+      {
+          m_DeclinationMap.m_bEnabled = dialog->m_cbDeclination->GetValue();
+          m_DeclinationMap.m_Spacing = dialog->m_scDeclinationSpacing->GetValue();
+          m_InclinationMap.m_bEnabled = dialog->m_cbInclination->GetValue();
+          m_InclinationMap.m_Spacing = dialog->m_scInclinationSpacing->GetValue();
+          m_FieldStrengthMap.m_bEnabled = dialog->m_cbFieldStrength->GetValue();
+          m_FieldStrengthMap.m_Spacing = dialog->m_scFieldStrengthSpacing->GetValue();
+          m_MapDate = dialog->m_dpDate->GetValue();
+          m_MapStep = dialog->m_sStep->GetValue();
+          m_MapPoleAccuracy = dialog->m_sPoleAccuracy->GetValue();
+          m_DeclinationMap.ConfigureAccuracy(m_MapStep, m_MapPoleAccuracy);
+          m_InclinationMap.ConfigureAccuracy(m_MapStep, m_MapPoleAccuracy);
+          m_FieldStrengthMap.ConfigureAccuracy(m_MapStep, m_MapPoleAccuracy);
+
+          m_bCachedPlotOk = false;
+          if(m_pWmmDialog->m_cbEnablePlot->GetValue())
+              RecomputePlot();
+
+          RequestRefresh( m_parent_window );
+          RearrangeWindow();
+
+          SaveConfig();
+      }
+      delete dialog;
+}
 
 /*!
  * \brief
@@ -655,5 +824,3 @@ int WMM_setupMagneticModel(char *data, WMMtype_MagneticModel * MagneticModel)
       free(tmp_data);
 	return TRUE;
 } /*WMM_setupMagneticModel */
-
-
