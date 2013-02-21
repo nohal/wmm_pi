@@ -331,6 +331,10 @@ void wmm_pi::OnToolbarToolCallback(int id)
             SendPluginMessage(_T("WMM_WINDOW_SHOWN"), wxEmptyString);
       else
             SendPluginMessage(_T("WMM_WINDOW_HIDDEN"), wxEmptyString);
+
+    wxPoint p = m_pWmmDialog->GetPosition();
+    m_pWmmDialog->Move(0,0);        // workaround for gtk autocentre dialog behavior
+    m_pWmmDialog->Move(p);
 }
 
 void wmm_pi::RenderOverlayBoth(wxDC *dc, PlugIn_ViewPort *vp)
