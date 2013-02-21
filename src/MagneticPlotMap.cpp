@@ -444,9 +444,8 @@ ContourBitmap MagneticPlotMap::ContourCacheData(double value)
     wxString msg;
     msg.Printf(_("%.0f"), value);
 
-    wxMemoryDC mdc;
     wxBitmap bm( 120, 25 );
-    mdc.SelectObject( bm );
+    wxMemoryDC mdc( bm );
     mdc.Clear();
 
     wxFont mfont( 15, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_ITALIC, wxFONTWEIGHT_NORMAL );
