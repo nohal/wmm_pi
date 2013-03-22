@@ -2,112 +2,212 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-25 14:51+0200\n"
+"POT-Creation-Date: 2013-03-21 20:48-0600\n"
 "PO-Revision-Date: 2011-05-16 09:12+0100\n"
 "Last-Translator: Gunther Pilz <gunther.pilz@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 #
-#, fuzzy, c-format
-msgid "%-5.1lf"
-msgstr "%-9.1lf nT"
+msgid ""
+"\n"
+"World Magnetic Model Plotting allows users to cross reference the magnetic "
+"deviation values printed on many raster charts.\n"
+"\n"
+"Declination is the angle between true and magnetic north.\n"
+"Inclination is the vertical angle of the magnetic field.\n"
+"\t(+- 90 at the magnetic poles)\n"
+"Field Strength is the magnetic field in nano tesla from\n"
+"\t20000 to 66000\n"
+"\n"
+"The plotted lines are similar to a topographic map.  The space between them "
+"can be adjusted; more space takes less time to calculate.\n"
+"\n"
+"The Step size and Pole accuracy sliders allow a trade off for speed vs "
+"computation time.\n"
+"\n"
+"The World Magnetic Model Plugin was written by Pavel Kalian and extended by "
+"Sean D'Epagnier to support plotting."
+msgstr ""
 #
+# 
 #, c-format
 msgid "%-5.1lf\\u00B0"
 msgstr "%-5.1lf\\u00B0"
 #
+# 
 #, c-format
 msgid "%-5.1lf\\u00B0 (%s)"
 msgstr "%-5.1lf\\u00B0 (%s)"
 #
+# 
 #, c-format
 msgid "%-9.1lf nT"
 msgstr "%-9.1lf nT"
 #
 #, c-format
+msgid "%.0f"
+msgstr ""
+#
+#, c-format
+msgid "%.1f"
+msgstr ""
+#
+# 
+#, c-format
 msgid "%u\\u00B0%u' E"
 msgstr "%u\\u00B0%u' E"
 #
+# 
 #, c-format
 msgid "%u\\u00B0%u' W"
 msgstr "%u\\u00B0%u' W"
 #
+# 
 msgid "(DIP) - Geomagnetic Inclination "
 msgstr "Inklination (DIP)"
 #
+msgid "About"
+msgstr ""
+#
+# 
 msgid "Boat"
 msgstr "Boot"
 #
+msgid "Building Magnetic Map"
+msgstr ""
+#
+msgid "Cancel"
+msgstr ""
+#
+# 
 msgid "Cursor"
 msgstr "Cursor"
 #
-msgid "Display mode"
+msgid "Declination"
 msgstr ""
 #
+msgid "Degrees"
+msgstr ""
+#
+# 
 msgid "East Component"
 msgstr "Ost Komponente"
 #
+# 
 msgid "Error, see log."
 msgstr "Fehler - siehe Log."
 #
+# 
 msgid "Extended"
 msgstr "Erweitert"
 #
+# 
 msgid "F"
 msgstr "F"
 #
+msgid "Field Strength"
+msgstr ""
+#
+# 
 msgid "H"
 msgstr "H"
 #
+# 
 msgid "Horizontal Intensity"
 msgstr "Horizontale Intensität"
 #
+# 
 msgid "Incl"
 msgstr "Inkl."
 #
+msgid "Inclination"
+msgstr ""
+#
+# 
+#, fuzzy
+msgid "Magnetic Plot Settings"
+msgstr "Deklination"
+#
+# 
 msgid "Magnetic Variation"
 msgstr "Deklination"
 #
+msgid "Nano Tesla"
+msgstr ""
+#
+# 
 msgid "North Component"
 msgstr "Nord Komponente"
 #
+msgid "Pole Accuracy"
+msgstr ""
+#
+msgid "Save"
+msgstr ""
+#
+msgid "Settings..."
+msgstr ""
+#
+# 
 msgid "Show also data at cursor position"
 msgstr "Zeige auch Daten der Cursorposition"
 #
+# 
 msgid "Show data in toolbar icon"
 msgstr ""
 #
+msgid "Step Size"
+msgstr ""
+#
+# 
 msgid "Total Intensity"
 msgstr "Gesamt-Intensität"
 #
+# 
 msgid "Vari"
 msgstr "Dekl."
 #
+# 
 msgid "Variation only"
 msgstr "nur Deklination"
 #
+# 
 msgid "Vertical Component"
 msgstr "Vertikale Komponente"
 #
+# 
+# 
+msgid "View"
+msgstr "Anzeige"
+#
+# 
 msgid "WMM"
 msgstr "WMM"
 #
+msgid "WMM Plugin"
+msgstr ""
+#
+# 
 msgid "WMM Preferences"
 msgstr "WMM Einstellungen"
 #
+# 
 msgid "Window transparency"
 msgstr "Fenster-Transparenz"
 #
+# 
 msgid "World Magnetic Model PlugIn for OpenCPN"
 msgstr "World Magnetic Model PlugIn für OpenCPN"
 #
+# 
 msgid ""
 "World Magnetic Model PlugIn for OpenCPN\n"
 "Implements the NOAA World Magnetic Model\n"
@@ -126,15 +226,23 @@ msgstr ""
 "herunter,\n"
 "welches du im OpenCPN Log findest."
 #
+# 
 msgid "X"
 msgstr "X"
 #
+# 
 msgid "Y"
 msgstr "Y"
 #
+# 
 msgid "Z"
 msgstr "Z"
 #
+msgid "enable plot"
+msgstr ""
 #
-#~ msgid "View"
-#~ msgstr "Anzeige"
+#
+# 
+#, fuzzy
+#~ msgid "%-5.1lf"
+#~ msgstr "%-9.1lf nT"
