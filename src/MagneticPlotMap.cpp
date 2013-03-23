@@ -466,8 +466,12 @@ ContourBitmap MagneticPlotMap::ContourCacheData(double value)
        we will still create a valid image. */
     if(w <= 0)
         w = 1;
+    else if(w > 120)
+        w = 120;
     if(h <= 0)
         h = 1;
+    else if(h > 25)
+        h = 25;
 
     mdc.DrawText( msg, 0, 0 );
 
