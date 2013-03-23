@@ -462,6 +462,13 @@ ContourBitmap MagneticPlotMap::ContourCacheData(double value)
     int w, h;
     mdc.GetTextExtent( msg, &w, &h );
 
+    /* in the case that the font or something fails, and the dimensions are off,
+       we will still create a valid image. */
+    if(w <= 0)
+        w = 1;
+    if(h <= 0)
+        h = 1;
+
     mdc.DrawText( msg, 0, 0 );
 
     mdc.SelectObject( wxNullBitmap );
