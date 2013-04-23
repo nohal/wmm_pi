@@ -7,139 +7,178 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WMM Plugin 0.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-25 14:51+0200\n"
+"POT-Creation-Date: 2013-03-21 20:48-0600\n"
 "PO-Revision-Date: 2012-04-25 14:53+0100\n"
 "Last-Translator: Pavel Kalian <pavel@kalian.cz>\n"
 "Language-Team:  <pavel@kalian.cz>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Language: Czech\n"
 "X-Poedit-Country: CZECH REPUBLIC\n"
 "X-Poedit-SourceCharset: utf-8\n"
-
 #
-#, c-format
-msgid "%-5.1lf"
+msgid ""
+"\n"
+"World Magnetic Model Plotting allows users to cross reference the magnetic "
+"deviation values printed on many raster charts.\n"
+"\n"
+"Declination is the angle between true and magnetic north.\n"
+"Inclination is the vertical angle of the magnetic field.\n"
+"\t(+- 90 at the magnetic poles)\n"
+"Field Strength is the magnetic field in nano tesla from\n"
+"\t20000 to 66000\n"
+"\n"
+"The plotted lines are similar to a topographic map.  The space between them "
+"can be adjusted; more space takes less time to calculate.\n"
+"\n"
+"The Step size and Pole accuracy sliders allow a trade off for speed vs "
+"computation time.\n"
+"\n"
+"The World Magnetic Model Plugin was written by Pavel Kalian and extended by "
+"Sean D'Epagnier to support plotting."
 msgstr ""
-
 #
 #, c-format
 msgid "%-5.1lf\\u00B0"
 msgstr ""
-
 #
 #, c-format
 msgid "%-5.1lf\\u00B0 (%s)"
 msgstr ""
-
 #
 #, c-format
 msgid "%-9.1lf nT"
 msgstr ""
-
+#
+#, c-format
+msgid "%.0f"
+msgstr ""
+#
+#, c-format
+msgid "%.1f"
+msgstr ""
 #
 #, c-format
 msgid "%u\\u00B0%u' E"
 msgstr ""
-
 #
 #, c-format
 msgid "%u\\u00B0%u' W"
 msgstr ""
-
 #
 msgid "(DIP) - Geomagnetic Inclination "
 msgstr "(DIP) - Geomagnetická inklinace"
-
+#
+msgid "About"
+msgstr ""
 #
 msgid "Boat"
 msgstr "Loď"
-
+#
+msgid "Building Magnetic Map"
+msgstr ""
+#
+msgid "Cancel"
+msgstr ""
 #
 msgid "Cursor"
 msgstr "Kurzor"
-
 #
-msgid "Display mode"
-msgstr "Mód zobrazení"
-
+msgid "Declination"
+msgstr ""
+#
+msgid "Degrees"
+msgstr ""
 #
 msgid "East Component"
 msgstr "Východní komponenta"
-
 #
 msgid "Error, see log."
 msgstr "Chyba, viz. log."
-
 #
 msgid "Extended"
 msgstr "Rozšířené"
-
 #
 msgid "F"
 msgstr ""
-
+#
+msgid "Field Strength"
+msgstr ""
 #
 msgid "H"
 msgstr ""
-
 #
 msgid "Horizontal Intensity"
 msgstr "Horizontální intenzita"
-
 #
 msgid "Incl"
 msgstr "Inkl"
-
+#
+msgid "Inclination"
+msgstr ""
+#
+#, fuzzy
+msgid "Magnetic Plot Settings"
+msgstr "Magnetická variace"
 #
 msgid "Magnetic Variation"
 msgstr "Magnetická variace"
-
+#
+msgid "Nano Tesla"
+msgstr ""
 #
 msgid "North Component"
 msgstr "Severní komponenta"
-
+#
+msgid "Pole Accuracy"
+msgstr ""
+#
+msgid "Save"
+msgstr ""
+#
+msgid "Settings..."
+msgstr ""
 #
 msgid "Show also data at cursor position"
 msgstr "Ukaž i data pro pozici kurzoru"
-
 #
 msgid "Show data in toolbar icon"
 msgstr "Zobrazuj data v ikoně"
-
+#
+msgid "Step Size"
+msgstr ""
 #
 msgid "Total Intensity"
 msgstr "Celková intenzita"
-
 #
 msgid "Vari"
 msgstr ""
-
 #
 msgid "Variation only"
 msgstr "Jen variace"
-
 #
 msgid "Vertical Component"
 msgstr "Vertikální komponenta"
-
+#
+msgid "View"
+msgstr ""
 #
 msgid "WMM"
 msgstr ""
-
+#
+msgid "WMM Plugin"
+msgstr ""
 #
 msgid "WMM Preferences"
 msgstr "Nastavení WMM"
-
 #
 msgid "Window transparency"
 msgstr "Průhlednost okna"
-
 #
 msgid "World Magnetic Model PlugIn for OpenCPN"
 msgstr "World Magnetic Model PlugIn pro OpenCPN"
-
 #
 msgid ""
 "World Magnetic Model PlugIn for OpenCPN\n"
@@ -157,16 +196,20 @@ msgstr ""
 "Potom, pokud nebude včas vzdána nová verze pluginu\n"
 "stáhni nový WMM.COF na webu NOAA a umísti ho\n"
 "na místo, které najdeš v logu OpenCPN."
-
 #
 msgid "X"
 msgstr ""
-
 #
 msgid "Y"
 msgstr ""
-
 #
 msgid "Z"
 msgstr ""
-
+#
+msgid "enable plot"
+msgstr ""
+#
+#
+#
+#~ msgid "Display mode"
+#~ msgstr "Mód zobrazení"
