@@ -33,7 +33,7 @@
 
 #include <wx/progdlg.h>
 
-#include "../../../include/ocpn_plugin.h"
+#include <opencpn/ocpn_plugin.h>
 
 #include "WMMHeader.h"
 #include "MagneticPlotMap.h"
@@ -212,12 +212,12 @@ bool MagneticPlotMap::Interpolate(double x1, double x2, double y1, double y2, bo
 //  b = (x1/y1-x2/y2)/(1/y1-1/y2)
 //  b = [(x1/y1-x2/y2)* (y1*y2)]/[(1/y1-1/y2) *(y1*y2)]
 //  b = (x1*y2-x2*y1)/(y2-y1)
-    
+
         rx = (x1*(y2-ry)-x2*(y1-ry))/(y2-y1);
 
         if(fabs(x1-x2) < m_PoleAccuracy) /* to avoid recursing too far close */
             return true;
-   
+
         double p;
         if(lat)
             p = CalcParameter(rx, lonval);
@@ -249,7 +249,7 @@ bool MagneticPlotMap::Interpolate(double x1, double x2, double y1, double y2, bo
             x2 = rx;
             y2 = p;
         }
-    }    
+    }
 }
 
 /* once we have a final line segment, store it in the database */
@@ -298,7 +298,7 @@ void MagneticPlotMap::PlotRegion(std::list<PlotLineSeg*> &region,
         PlotRegion(region, lat1, lon3, lat2, lon2);
         return;
     }
-    
+
     /* vertical interpolate */
     if(!Interpolate(lat1, lat2, p1, p3, true, lon1, lat3, ry3) ||
        !Interpolate(lat1, lat2, p2, p4, true, lon2, lat4, ry4)) {
@@ -496,7 +496,7 @@ ContourBitmap MagneticPlotMap::ContourCacheData(double value)
             b = d[ioff* 3 + 2];
 
             a[ioff] = 255-r;
-            
+
             int off = ( y * w + x );
             e[off * 4 + 0] = r;
             e[off * 4 + 1] = g;
