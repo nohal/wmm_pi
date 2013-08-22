@@ -43,7 +43,7 @@
 #define     MY_API_VERSION_MAJOR    1
 #define     MY_API_VERSION_MINOR    8
 
-#include "../../../include/ocpn_plugin.h"
+#include <opencpn/ocpn_plugin.h>
 
 #include "WMMHeader.h"
 #include "WMM_SubLibrary.c"
@@ -62,13 +62,13 @@
 class wmm_pi;
 
 class WmmUIDialog : public WmmUIDialogBase
-{		
+{
 public:
     WmmUIDialog( wmm_pi &_wmm_pi, wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _T("WMM"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 250,495 ), long style = wxCAPTION|wxDEFAULT_DIALOG_STYLE|wxTAB_TRAVERSAL ) : WmmUIDialogBase( parent, id, title, pos, size, style ), m_wmm_pi(_wmm_pi) {}
 
     void EnablePlotChanged( wxCommandEvent& event );
     void PlotSettings( wxCommandEvent& event );
-	
+
 protected:
     wmm_pi &m_wmm_pi;
 };
