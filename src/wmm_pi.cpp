@@ -149,7 +149,7 @@ int wmm_pi::Init(void)
 	/* Check for Geographic Poles */
 	//WMM_readMagneticModel_Large(filename, MagneticModel); //Uncomment this line when using the 740 model, and comment out the  WMM_readMagneticModel line.
 
-      filename = m_wmm_dir + _T("/WMM.COF");
+      filename = m_wmm_dir + _T("WMM.COF");
       char cstring[1024];
       strncpy(cstring, (const char*)filename.mb_str(wxConvUTF8), 1023);
       if (0 == WMM_readMagneticModel(cstring, MagneticModel))
@@ -643,8 +643,9 @@ bool wmm_pi::LoadConfig(void)
             m_bCachedPlotOk = false;
 
             pConf->SetPath ( _T ( "/Directories" ) );
-            wxString def;
-            def = ::wxGetCwd() + _T("/plugins");
+            wxString s =wxFileName::GetPathSeparator();
+            wxString def = *GetpSharedDataLocation() + _T("plugins")
+                + s + _T("wmm_pi") + s + _T("data") + s;
             pConf->Read ( _T ( "WMMDataLocation" ), &m_wmm_dir, def);
             return true;
       }
