@@ -812,12 +812,12 @@ int WMM_InitializeGeoid(WMMtype_Geoid *Geoid)
 
 
 
-  if (( GeoidHeightFile = fopen( geoiddatapath , "rb" ) ) == NULL)
+/*  if (( GeoidHeightFile = fopen( geoiddatapath , "rb" ) ) == NULL)
   {
 	WMM_Error(16);
 	//printf("Error in opening EGM9615.BIN file\n");
 	return (FALSE);
-  }
+  }*/
 
   ElevationsRead = fread(Geoid->GeoidHeightBuffer, sizeof(float), Geoid->NumbGeoidElevs, GeoidHeightFile);
 

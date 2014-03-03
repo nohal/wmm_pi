@@ -2,19 +2,20 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: wmm_pi 3.0.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-03-21 20:48-0600\n"
-"PO-Revision-Date: 2011-05-16 09:12+0100\n"
-"Last-Translator: Gunther Pilz <gunther.pilz@gmail.com>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2013-03-13 12:17+0100\n"
+"Last-Translator: opencpn.es <opencpn.es@gmx.com>\n"
+"Language-Team: La Taberna del Puerto <Pepo II>\n"
+"Language: español\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.5\n"
 #
 msgid ""
 "\n"
@@ -36,18 +37,33 @@ msgid ""
 "The World Magnetic Model Plugin was written by Pavel Kalian and extended by "
 "Sean D'Epagnier to support plotting."
 msgstr ""
+"\n"
+"World Magnetic Model Plotting permite a los usuarios a comprobar la "
+"referencia mostrada de desviación magnética en muchas de las cartas raster.\n"
+"\n"
+"La Declinación es el ángulo entre el norte verdadero y el magnético.\n"
+"La Inclinación es el ángulo vertical del campo magnético.\n"
+"\t(+- 90 en los polos magnéticos)\n"
+"La Intensidad de Campo es el campo magnético en nano tesla de\n"
+"\t20000 a 66000\n"
+"\n"
+"Las líneas dibujadas son similares a un mapa topográfico. El espacio entre "
+"ellas puede ser ajustado; a más espacio menos tiempo empleado en cálculos.\n"
+"\n"
+"Los controles deslizantes para tamaño de Paso y Precisión en Polo le permiten "
+"controlar los tiempos empleados en cálculos de ordenador.\n"
+"\n"
+"El Plugin del Modelo de Magnetismo Mundial ha sido escrito por Pavel Kalian y "
+"ampliado por Sean D'Epagnier para permitir las gráficas."
 #
-# 
 #, c-format
 msgid "%-5.1lf\\u00B0"
 msgstr "%-5.1lf\\u00B0"
 #
-# 
 #, c-format
 msgid "%-5.1lf\\u00B0 (%s)"
 msgstr "%-5.1lf\\u00B0 (%s)"
 #
-# 
 #, c-format
 msgid "%-9.1lf nT"
 msgstr "%-9.1lf nT"
@@ -58,156 +74,127 @@ msgstr ""
 #
 #, c-format
 msgid "%.1f"
-msgstr ""
+msgstr "%.1f"
 #
-# 
 #, c-format
 msgid "%u\\u00B0%u' E"
 msgstr "%u\\u00B0%u' E"
 #
-# 
 #, c-format
 msgid "%u\\u00B0%u' W"
 msgstr "%u\\u00B0%u' W"
 #
-# 
 msgid "(DIP) - Geomagnetic Inclination "
-msgstr "Inklination (DIP)"
+msgstr "(DIP) - Inclinación geomagnética"
 #
 msgid "About"
-msgstr ""
+msgstr "Acerca de"
 #
-# 
 msgid "Boat"
-msgstr "Boot"
+msgstr "Barco"
 #
 msgid "Building Magnetic Map"
 msgstr ""
 #
 msgid "Cancel"
-msgstr ""
+msgstr "Cancelar"
 #
-# 
 msgid "Cursor"
 msgstr "Cursor"
 #
 msgid "Declination"
-msgstr ""
+msgstr "Declinación"
 #
 msgid "Degrees"
-msgstr ""
+msgstr "Grados"
 #
-# 
 msgid "East Component"
-msgstr "Ost Komponente"
+msgstr "Componente Este"
 #
-# 
 msgid "Error, see log."
-msgstr "Fehler - siehe Log."
+msgstr "Error, ver log"
 #
-# 
 msgid "Extended"
-msgstr "Erweitert"
+msgstr "Extendida"
 #
-# 
 msgid "F"
 msgstr "F"
 #
 msgid "Field Strength"
-msgstr ""
+msgstr "Intensidad del campo"
 #
-# 
 msgid "H"
 msgstr "H"
 #
-# 
 msgid "Horizontal Intensity"
-msgstr "Horizontale Intensität"
+msgstr "Intensidad Horizontal"
 #
-# 
 msgid "Incl"
-msgstr "Inkl."
+msgstr "Incl"
 #
 msgid "Inclination"
-msgstr ""
+msgstr "Inclinación"
 #
-# 
-#, fuzzy
 msgid "Magnetic Plot Settings"
-msgstr "Deklination"
+msgstr "Configuración dibujo magnetismo"
 #
-# 
 msgid "Magnetic Variation"
-msgstr "Deklination"
+msgstr "Variación Magnética"
 #
 msgid "Nano Tesla"
-msgstr ""
+msgstr "Nano Tesla"
 #
-# 
 msgid "North Component"
-msgstr "Nord Komponente"
+msgstr "Componente Norte"
 #
 msgid "Pole Accuracy"
-msgstr ""
+msgstr "Precisión en el Polo"
 #
 msgid "Save"
-msgstr ""
+msgstr "Guardar"
 #
 msgid "Settings..."
-msgstr ""
+msgstr "Configuración..."
 #
-# 
 msgid "Show also data at cursor position"
-msgstr "Zeige auch Daten der Cursorposition"
+msgstr "Mostrar datos en la posición del cursor"
 #
-# 
 msgid "Show data in toolbar icon"
-msgstr ""
+msgstr "Mostrar datos en Barra de Iconos"
 #
 msgid "Step Size"
-msgstr ""
+msgstr "Tamaño del paso"
 #
-# 
 msgid "Total Intensity"
-msgstr "Gesamt-Intensität"
+msgstr "Intensidad Total"
 #
-# 
 msgid "Vari"
-msgstr "Dekl."
+msgstr "Vari"
 #
-# 
 msgid "Variation only"
-msgstr "nur Deklination"
+msgstr "Variación sólo"
 #
-# 
 msgid "Vertical Component"
-msgstr "Vertikale Komponente"
+msgstr "Componente Vertical"
 #
-# 
-# 
 msgid "View"
-msgstr "Anzeige"
+msgstr "Vista"
 #
-# 
 msgid "WMM"
 msgstr "WMM"
 #
 msgid "WMM Plugin"
-msgstr ""
+msgstr "WMM Plugin"
 #
-# 
 msgid "WMM Preferences"
-msgstr "WMM Einstellungen"
+msgstr "WMM Preferencias"
 #
-# 
 msgid "Window transparency"
-msgstr "Fenster-Transparenz"
+msgstr "Transparencia de la ventana"
 #
-# 
 msgid "World Magnetic Model PlugIn for OpenCPN"
-msgstr "World Magnetic Model PlugIn für OpenCPN"
+msgstr "Plugin Modelo de Magnetismo Mundial para OpenCPN"
 #
-# 
 msgid ""
 "World Magnetic Model PlugIn for OpenCPN\n"
 "Implements the NOAA World Magnetic Model\n"
@@ -217,32 +204,22 @@ msgid ""
 "in time, get a new WMM.COF from NOAA and place it to the\n"
 "location you can find in the OpenCPN logfile."
 msgstr ""
-"World Magnetic Model Plugin für OpenCPN\n"
-"Implementiert das NOAA World Magnetic Model\n"
-"(siehe: http://www.ngdc.noaa.gov/geomag/WMM/)\n"
-"Das integrierte WMM2010 Model läuft am 31. Dezember 2014 aus.\n"
-"Wenn es nach diesem Zeitpunkt keine neue Version des Plugins geben\n"
-"sollte, lade eine neue WMM.COF Datei von der NOAA in das Verzeichnis "
-"herunter,\n"
-"welches du im OpenCPN Log findest."
+"El Plugin Modelo de Magnetismo Mundial para OpenCPN\n"
+"Implementa el Modelo de Magnetismo Mundial de la NOAA\n"
+"Más información en: http://www.ngdc.noaa.gov/geomag/WMM/\n"
+"El paquete para el modelo WMM2010 expira el 31 de diciembre de 2014.\n"
+"Despues de esa fecha, si no hay una nueva versión del plugin\n"
+"a tiempo, coja un nuevo archivo WMM.COF de la NOAA y colóquelo\n"
+"en el sitio donde se encuentre el archivo log de OpenCPN."
 #
-# 
 msgid "X"
 msgstr "X"
 #
-# 
 msgid "Y"
 msgstr "Y"
 #
-# 
 msgid "Z"
 msgstr "Z"
 #
 msgid "enable plot"
-msgstr ""
-#
-#
-# 
-#, fuzzy
-#~ msgid "%-5.1lf"
-#~ msgstr "%-9.1lf nT"
+msgstr "Activar dibujo"

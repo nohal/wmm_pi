@@ -63,7 +63,7 @@ class wmm_pi;
 class WmmUIDialog : public WmmUIDialogBase
 {		
 public:
-    WmmUIDialog( wmm_pi &_wmm_pi, wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("WMM"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 250,495 ), long style = wxCAPTION|wxDEFAULT_DIALOG_STYLE|wxTAB_TRAVERSAL ) : WmmUIDialogBase( parent, id, title, pos, size, style ), m_wmm_pi(_wmm_pi) {}
+    WmmUIDialog( wmm_pi &_wmm_pi, wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _T("WMM"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 250,495 ), long style = wxCAPTION|wxDEFAULT_DIALOG_STYLE|wxTAB_TRAVERSAL ) : WmmUIDialogBase( parent, id, title, pos, size, style ), m_wmm_pi(_wmm_pi) {}
 
     void EnablePlotChanged( wxCommandEvent& event );
     void PlotSettings( wxCommandEvent& event );

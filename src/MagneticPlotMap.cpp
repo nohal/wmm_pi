@@ -38,6 +38,10 @@
 #include "WMMHeader.h"
 #include "MagneticPlotMap.h"
 
+#if defined(__WIN32__)
+#define isnan(x) _isnan(x)
+#endif
+
 double square(double x) { return x*x; }
 
 /* initialize cache to contain data */
@@ -163,9 +167,10 @@ double MagneticPlotMap::CachedCalcParameter(double lat, double lon)
 bool MagneticPlotMap::Interpolate(double x1, double x2, double y1, double y2, bool lat,
                                   double lonval, double&rx, double &ry)
 {
+    double zero = 0.0;
     if(fabs(x1-x2) < m_PoleAccuracy) { /* to avoid recursing too far. make this value
                                           smaller to get more accuracy especially near the magnetic poles */
-        rx = 0.0/0.0; /* set as no intersections */
+        rx = zero/zero; /* set as no intersections */
         return true;
     }
 
@@ -182,7 +187,7 @@ bool MagneticPlotMap::Interpolate(double x1, double x2, double y1, double y2, bo
 
     double fy1 = floor(y1), fy2 = floor(y2);
     if(fy1 == fy2) {
-        rx = 0.0/0.0; /* no intersections occured */
+        rx = zero/zero; /* no intersections occured */
         return true;
     }
 
@@ -424,18 +429,19 @@ void DrawLineSeg(wxDC *dc, PlugIn_ViewPort &VP, double lat1, double lon1, double
 /* reset the map and clear all the data so it can be reused */
 void MagneticPlotMap::ClearMap()
 {
-  for(int latind=0; latind<LATITUDE_ZONES; latind++)
-      for(int lonind=0; lonind<LONGITUDE_ZONES; lonind++)
-          m_map[latind][lonind].clear();
+    for(int latind=0; latind<LATITUDE_ZONES; latind++)
+        for(int lonind=0; lonind<LONGITUDE_ZONES; lonind++)
+            m_map[latind][lonind].clear();
 
-  for(int i=0; i<m_contourcachesize; i++) {
-      delete [] m_contourcache[i].data;
-  }
-  delete [] m_contourcache;
+    for(int i=0; i<m_contourcachesize; i++) {
+        delete [] m_contourcache[i].data;
+    }
+    delete [] m_contourcache;
 
-  m_MinContour = m_MaxContour = 0.0/0.0; /* set to nan */
-  m_contourcachesize = 0;
-  m_contourcache = NULL;
+    double zero = 0.0;
+    m_MinContour = m_MaxContour = zero/zero; /* set to nan */
+    m_contourcachesize = 0;
+    m_contourcache = NULL;
 }
 
 /* generate a cache bitmap of a given number */
@@ -444,9 +450,8 @@ ContourBitmap MagneticPlotMap::ContourCacheData(double value)
     wxString msg;
     msg.Printf(_("%.0f"), value);
 
-    wxMemoryDC mdc;
     wxBitmap bm( 120, 25 );
-    mdc.SelectObject( bm );
+    wxMemoryDC mdc( bm );
     mdc.Clear();
 
     wxFont mfont( 15, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_ITALIC, wxFONTWEIGHT_NORMAL );
@@ -456,6 +461,17 @@ ContourBitmap MagneticPlotMap::ContourCacheData(double value)
 
     int w, h;
     mdc.GetTextExtent( msg, &w, &h );
+
+    /* in the case that the font or something fails, and the dimensions are off,
+       we will still create a valid image. */
+    if(w <= 0)
+        w = 1;
+    else if(w > 120)
+        w = 120;
+    if(h <= 0)
+        h = 1;
+    else if(h > 25)
+        h = 25;
 
     mdc.DrawText( msg, 0, 0 );
 
