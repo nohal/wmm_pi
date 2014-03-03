@@ -33,7 +33,7 @@
 
 #include <wx/progdlg.h>
 
-#include "../../../include/ocpn_plugin.h"
+#include "ocpn_plugin.h"
 
 #include "WMMHeader.h"
 #include "MagneticPlotMap.h"
