@@ -11,7 +11,6 @@ PROJECT(wmm_pi)
 
 SET(PACKAGE_NAME wmm_pi)
 SET(CPACK_PACKAGE_CONTACT "Pavel Kalian")
-MESSAGE (STATUS "*** Building ${PACKAGE_NAME} ***")
 
 SET(VERSION_MAJOR "0")
 SET(VERSION_MINOR "7")
@@ -32,6 +31,10 @@ SET(SRC_WMM
 	    src/WmmUIDialog.h
 	    src/WmmUIDialog.cpp
 	    src/WMM_COF.h
+	)
+
+IF(WIN32)
+SET(SRC_JSON
 	    src/json_defs.h
 	    src/jsonreader.h
 	    src/jsonval.h
@@ -39,8 +42,10 @@ SET(SRC_WMM
 	    src/jsonreader.cpp
 	    src/jsonval.cpp
 	    src/jsonwriter.cpp
-	)
-ADD_LIBRARY(${PACKAGE_NAME} SHARED ${SRC_WMM})
+        )
+ENDIF(WIN32)
+
+ADD_LIBRARY(${PACKAGE_NAME} SHARED ${SRC_WMM} ${SRC_JSON})
 
 INCLUDE("cmake/PluginInstall.cmake")
 INCLUDE("cmake/PluginLocalization.cmake")
