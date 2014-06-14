@@ -47,6 +47,9 @@ extern "C" DECL_EXP void destroy_pi(opencpn_plugin* p)
     delete p;
 }
 
+void WMMLogMessage(wxString s) { wxLogMessage(_T("WMM: ") + s); }
+void WMMLogMessage(const char *s) { WMMLogMessage(wxString(s)); }
+
 //---------------------------------------------------------------------------------------------------------
 //
 //    WMM PlugIn Implementation
@@ -141,7 +144,7 @@ int wmm_pi::Init(void)
 	if(MagneticModel == NULL || TimedMagneticModel == NULL)
 	{
 		//WMM_Error(2); Nohal - We don't want the printf's
-            wxLogMessage(_T("WMM initialization error"));
+            WMMLogMessage(_T("initialization error"));
             m_buseable = false;
 	}
 
@@ -154,7 +157,7 @@ int wmm_pi::Init(void)
       strncpy(cstring, (const char*)filename.mb_str(wxConvUTF8), 1023);
       if (0 == WMM_readMagneticModel(cstring, MagneticModel))
       {
-            wxLogMessage(wxString::Format(_T("Warning: WMM model data file %s can't be loaded, using the bundled data."), filename.c_str()));
+            WMMLogMessage(wxString::Format(_T("Warning: WMM model data file %s can't be loaded, using the bundled data."), filename.c_str()));
             WMM_setupMagneticModel(wmm_cof_data, MagneticModel);
       }
 
