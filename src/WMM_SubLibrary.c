@@ -411,7 +411,7 @@ void WMM_DegreeToDMSstring (double DegreesOfArc, int UnitDepth, char *DMSstring)
 	} /*WMM_DegreeToDMSstring*/
 
 
-void WMMLogMessage(const char *s);
+//void WMMLogMessage(const char *s);
 
 void WMM_DMSstringToDegree (char *DMSstring, double *DegreesOfArc)
 

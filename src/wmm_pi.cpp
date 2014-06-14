@@ -33,6 +33,9 @@
   #include "wx/wx.h"
 #endif //precompiled headers
 
+void WMMLogMessage1(wxString s) { wxLogMessage(_T("WMM: ") + s); }
+extern "C" void WMMLogMessage(const char *s) { WMMLogMessage1(wxString(s)); }
+
 #include "wmm_pi.h"
 
 // the class factories, used to create and destroy instances of the PlugIn
@@ -46,9 +49,6 @@ extern "C" DECL_EXP void destroy_pi(opencpn_plugin* p)
 {
     delete p;
 }
-
-void WMMLogMessage(wxString s) { wxLogMessage(_T("WMM: ") + s); }
-void WMMLogMessage(const char *s) { WMMLogMessage(wxString(s)); }
 
 //---------------------------------------------------------------------------------------------------------
 //
@@ -144,7 +144,7 @@ int wmm_pi::Init(void)
 	if(MagneticModel == NULL || TimedMagneticModel == NULL)
 	{
 		//WMM_Error(2); Nohal - We don't want the printf's
-            WMMLogMessage(_T("initialization error"));
+            WMMLogMessage1(_T("initialization error"));
             m_buseable = false;
 	}
 
