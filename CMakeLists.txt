@@ -31,6 +31,8 @@ SET(SRC_WMM
 	    src/WmmUIDialog.h
 	    src/WmmUIDialog.cpp
 	    src/WMM_COF.h
+            src/TexFont.cpp
+            src/TexFont.h
 	)
 
 IF(WIN32)
