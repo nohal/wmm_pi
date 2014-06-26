@@ -34,7 +34,7 @@
 #endif //precompiled headers
 
 void WMMLogMessage1(wxString s) { wxLogMessage(_T("WMM: ") + s); }
-extern "C" void WMMLogMessage(const char *s) { WMMLogMessage1(wxString(s)); }
+extern "C" void WMMLogMessage(const char *s) { WMMLogMessage1(wxString::Format(_T("%s"), s)); }
 
 #include "wmm_pi.h"
 
@@ -157,7 +157,7 @@ int wmm_pi::Init(void)
       strncpy(cstring, (const char*)filename.mb_str(wxConvUTF8), 1023);
       if (0 == WMM_readMagneticModel(cstring, MagneticModel))
       {
-            WMMLogMessage(wxString::Format(_T("Warning: WMM model data file %s can't be loaded, using the bundled data."), filename.c_str()));
+          WMMLogMessage1(wxString::Format(_T("Warning: WMM model data file %s can't be loaded, using the bundled data."), (const char*)filename.ToAscii()));
             WMM_setupMagneticModel(wmm_cof_data, MagneticModel);
       }
 
