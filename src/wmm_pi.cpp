@@ -292,6 +292,9 @@ void wmm_pi::RearrangeWindow()
             m_pWmmDialog->sbSboat->Show(m_pWmmDialog->gSboat, true, true);
       }
 
+      m_pWmmDialog->m_cbEnablePlot->Show(m_bShowPlotOptions);
+      m_pWmmDialog->m_bPlotSettings->Show(m_bShowPlotOptions);
+
       if (!m_bShowAtCursor)
       {
             m_pWmmDialog->bSframe->Hide(m_pWmmDialog->sbScursor, true);
@@ -620,6 +623,7 @@ bool wmm_pi::LoadConfig(void)
       {
             pConf->SetPath ( _T( "/Settings/WMM" ) );
             pConf->Read ( _T( "ViewType" ),  &m_iViewType, 1 );
+            pConf->Read ( _T( "ShowPlotOptions" ),  &m_bShowPlotOptions, 1 );
             pConf->Read ( _T( "ShowAtCursor" ),  &m_bShowAtCursor, 1 );
             pConf->Read ( _T( "ShowLiveIcon" ),  &m_bShowLiveIcon, 1 );
             pConf->Read ( _T( "Opacity" ),  &m_iOpacity, 255 );
@@ -669,6 +673,7 @@ bool wmm_pi::SaveConfig(void)
       {
             pConf->SetPath ( _T ( "/Settings/WMM" ) );
             pConf->Write ( _T ( "ViewType" ), m_iViewType );
+            pConf->Write ( _T ( "ShowPlotOptions" ), m_bShowPlotOptions );
             pConf->Write ( _T ( "ShowAtCursor" ), m_bShowAtCursor );
             pConf->Write ( _T ( "ShowLiveIcon" ), m_bShowLiveIcon );
             pConf->Write ( _T ( "Opacity" ), m_iOpacity );
@@ -704,6 +709,7 @@ void wmm_pi::ShowPreferencesDialog( wxWindow* parent )
       dialog->SetBackgroundColour(cl);
 
       dialog->m_rbViewType->SetSelection(m_iViewType);
+      dialog->m_cbShowPlotOptions->SetValue(m_bShowPlotOptions);
       dialog->m_cbShowAtCursor->SetValue(m_bShowAtCursor);
       dialog->m_cbLiveIcon->SetValue(m_bShowLiveIcon);
       dialog->m_sOpacity->SetValue(m_iOpacity);
@@ -711,6 +717,7 @@ void wmm_pi::ShowPreferencesDialog( wxWindow* parent )
       if(dialog->ShowModal() == wxID_OK)
       {
             m_iViewType = dialog->m_rbViewType->GetSelection();
+            m_bShowPlotOptions = dialog->m_cbShowPlotOptions->GetValue();
             m_bShowAtCursor = dialog->m_cbShowAtCursor->GetValue();
             m_bShowLiveIcon = dialog->m_cbLiveIcon->GetValue();
             m_iOpacity = dialog->m_sOpacity->GetValue();
