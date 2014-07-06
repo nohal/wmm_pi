@@ -150,6 +150,7 @@ private:
       int               m_wmm_dialog_x, m_wmm_dialog_y;
       int               m_display_width, m_display_height;
       int               m_iViewType;
+      bool              m_bShowPlotOptions;
       bool              m_bShowAtCursor;
       bool              m_bShowLiveIcon;
       int               m_iOpacity;

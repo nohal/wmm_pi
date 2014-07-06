@@ -34,7 +34,7 @@
 #endif //precompiled headers
 
 void WMMLogMessage1(wxString s) { wxLogMessage(_T("WMM: ") + s); }
-extern "C" void WMMLogMessage(const char *s) { WMMLogMessage1(wxString::Format(_T("%s"), s)); }
+extern "C" void WMMLogMessage(const char *s) { WMMLogMessage1(wxString::FromAscii(s)); }
 
 #include "wmm_pi.h"
 
@@ -157,8 +157,9 @@ int wmm_pi::Init(void)
       strncpy(cstring, (const char*)filename.mb_str(wxConvUTF8), 1023);
       if (0 == WMM_readMagneticModel(cstring, MagneticModel))
       {
-          WMMLogMessage1(wxString::Format(_T("Warning: WMM model data file %s can't be loaded, using the bundled data."), (const char*)filename.ToAscii()));
-            WMM_setupMagneticModel(wmm_cof_data, MagneticModel);
+          WMMLogMessage1(_("model data file") + wxString(_T(": \""))
+                         + filename + wxString(_T("\" ")) + _("can't be loaded, using the bundled data."));
+          WMM_setupMagneticModel(wmm_cof_data, MagneticModel);
       }
 
  //     filename = m_wmm_dir + _T("/EGM9615.BIN");
@@ -290,6 +291,9 @@ void wmm_pi::RearrangeWindow()
             m_pWmmDialog->sbScursor->Show(m_pWmmDialog->gScursor, true, true);
             m_pWmmDialog->sbSboat->Show(m_pWmmDialog->gSboat, true, true);
       }
+
+      m_pWmmDialog->m_cbEnablePlot->Show(m_bShowPlotOptions);
+      m_pWmmDialog->m_bPlotSettings->Show(m_bShowPlotOptions);
 
       if (!m_bShowAtCursor)
       {
@@ -619,6 +623,7 @@ bool wmm_pi::LoadConfig(void)
       {
             pConf->SetPath ( _T( "/Settings/WMM" ) );
             pConf->Read ( _T( "ViewType" ),  &m_iViewType, 1 );
+            pConf->Read ( _T( "ShowPlotOptions" ),  &m_bShowPlotOptions, 1 );
             pConf->Read ( _T( "ShowAtCursor" ),  &m_bShowAtCursor, 1 );
             pConf->Read ( _T( "ShowLiveIcon" ),  &m_bShowLiveIcon, 1 );
             pConf->Read ( _T( "Opacity" ),  &m_iOpacity, 255 );
@@ -668,6 +673,7 @@ bool wmm_pi::SaveConfig(void)
       {
             pConf->SetPath ( _T ( "/Settings/WMM" ) );
             pConf->Write ( _T ( "ViewType" ), m_iViewType );
+            pConf->Write ( _T ( "ShowPlotOptions" ), m_bShowPlotOptions );
             pConf->Write ( _T ( "ShowAtCursor" ), m_bShowAtCursor );
             pConf->Write ( _T ( "ShowLiveIcon" ), m_bShowLiveIcon );
             pConf->Write ( _T ( "Opacity" ), m_iOpacity );
@@ -703,6 +709,7 @@ void wmm_pi::ShowPreferencesDialog( wxWindow* parent )
       dialog->SetBackgroundColour(cl);
 
       dialog->m_rbViewType->SetSelection(m_iViewType);
+      dialog->m_cbShowPlotOptions->SetValue(m_bShowPlotOptions);
       dialog->m_cbShowAtCursor->SetValue(m_bShowAtCursor);
       dialog->m_cbLiveIcon->SetValue(m_bShowLiveIcon);
       dialog->m_sOpacity->SetValue(m_iOpacity);
@@ -710,6 +717,7 @@ void wmm_pi::ShowPreferencesDialog( wxWindow* parent )
       if(dialog->ShowModal() == wxID_OK)
       {
             m_iViewType = dialog->m_rbViewType->GetSelection();
+            m_bShowPlotOptions = dialog->m_cbShowPlotOptions->GetValue();
             m_bShowAtCursor = dialog->m_cbShowAtCursor->GetValue();
             m_bShowLiveIcon = dialog->m_cbLiveIcon->GetValue();
             m_iOpacity = dialog->m_sOpacity->GetValue();
