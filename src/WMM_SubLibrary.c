@@ -1266,6 +1266,7 @@ int WMM_GetUserGrid(WMMtype_CoordGeodetic *minimum, WMMtype_CoordGeodetic *maxim
 	else
 		fprintf(fileout, "Minimum Altitude above MSL: %lf\tMaximum Altitude above WGS-84 Ellipsoid: %lf\tStep Size: %lf\n", minimum->HeightAboveEllipsoid, maximum->HeightAboveEllipsoid, *a_step_size);
 	fprintf(fileout,"Starting Date: %lf\t\tEnding Date: %lf\t\tStep Time: %lf\n\n\n", StartDate->DecimalYear, EndDate->DecimalYear, *step_time);
+    fclose(fileout);
 	return TRUE;
 	}
 
@@ -3169,6 +3170,9 @@ int WMM_Comparison(WMMtype_MagneticModel *MagneticModel, WMMtype_Ellipsoid Ellip
 	fileout = fopen(filename,"w");
 	filein = fopen("comp.txt","r");
 	Date.DecimalYear = 2010.0;
+    Date.Year = 2010;
+    Date.Month = 1;
+    Date.Day = 1;
 	WMM_TimelyModifyMagneticModel(Date, MagneticModel, TimedMagneticModel);
 	while(i == 0)
  	{
@@ -3188,6 +3192,8 @@ int WMM_Comparison(WMMtype_MagneticModel *MagneticModel, WMMtype_Ellipsoid Ellip
 	tot_RMSy = sqrt(tot_RMSy) / n;
 	tot_RMSz = sqrt(tot_RMSz) / n;
 	printf("RMS x = %lf\nRMS y = %lf\nRMS z = %lf\nn = %d", tot_RMSx, tot_RMSy, tot_RMSz, n);
+    fclose(filein);
+    fclose(fileout);
     return TRUE;
 	}
 
@@ -3763,6 +3769,7 @@ int WMM_readMagneticModel_ISO(char *filename, WMMtype_MagneticModel *magneticmod
                 header_index++;
                 if (header_index >= array_size) {
                     fprintf(stderr, "Header limit exceeded - too many models in model file. (%d)\n", header_index);
+                    fclose(stream);
                     return array_size+1;
                 }
                 newrecord = 0;
@@ -3800,6 +3807,7 @@ int WMM_readMagneticModel_ISO(char *filename, WMMtype_MagneticModel *magneticmod
             if(!allocationflag)
             {
                 fprintf(stderr, "Degree not found in model. Memory cannot be allocated.\n");
+                fclose(stream);
                 return _DEGREE_NOT_FOUND;
             }
             if (m <= n)

@@ -795,10 +795,10 @@ int WMM_setupMagneticModel(char *data, WMMtype_MagneticModel * MagneticModel)
 	char c_str[81], c_new[5];   /*these strings are used to read a line from coefficient file*/
 	int i, icomp, m, n, EOF_Flag = 0, index;
 	double epoch, gnm, hnm, dgnm, dhnm;
-      char *c_tmp;
-      char *tmp_data;
+    char *c_tmp;
+    char *tmp_data;
 
-      tmp_data = strdup(data);
+    tmp_data = strdup(data);
 
 	MagneticModel->Main_Field_Coeff_H[0] = 0.0;
 	MagneticModel->Main_Field_Coeff_G[0] = 0.0;
@@ -806,7 +806,8 @@ int WMM_setupMagneticModel(char *data, WMMtype_MagneticModel * MagneticModel)
 	MagneticModel->Secular_Var_Coeff_G[0] = 0.0;
 
 	c_tmp = strtok(tmp_data, "\n");
-      strncpy(c_str, c_tmp, 81);
+    strncpy(c_str, c_tmp, 80);
+    c_str[80] = '\0';
 	sscanf(c_str,"%lf%s",&epoch, MagneticModel->ModelName);
 	MagneticModel->epoch = epoch;
 	while (EOF_Flag == 0)
