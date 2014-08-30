@@ -1,14 +1,16 @@
 msgid ""
-msgstr "Project-Id-Version: opencpn\n"
+msgstr ""
+"Project-Id-Version: opencpn\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-03-21 20:48-0600\n"
-"PO-Revision-Date: 2014-06-25 20:30-0400\n"
+"PO-Revision-Date: 2014-08-09 13:24-0400\n"
 "Last-Translator: nohal <pavel@kalian.cz>\n"
 "Language-Team: Polish\n"
 "Language: pl_PL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: crowdin.net\n"
 
@@ -210,7 +212,7 @@ msgstr "Save"
 
 #: src/WmmUIDialog.cpp:363
 msgid "Cancel"
-msgstr "Cancel"
+msgstr "Anuluj"
 
 #: src/MagneticPlotMap.cpp:350
 msgid "Building Magnetic Map"

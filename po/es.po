@@ -1,20 +1,22 @@
 msgid ""
-msgstr "Project-Id-Version: opencpn\n"
+msgstr ""
+"Project-Id-Version: opencpn\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-03-21 20:48-0600\n"
-"PO-Revision-Date: 2014-06-25 20:30-0400\n"
+"PO-Revision-Date: 2014-08-30 13:43-0400\n"
 "Last-Translator: nohal <pavel@kalian.cz>\n"
 "Language-Team: Spanish\n"
 "Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: crowdin.net\n"
+"X-Generator: crowdin.com\n"
 
 #: src/wmm_pi.cpp:74
 msgid "\nWorld Magnetic Model Plotting allows users to cross reference the magnetic deviation values printed on many raster charts.\n\nDeclination is the angle between true and magnetic north.\nInclination is the vertical angle of the magnetic field.\n\t(+- 90 at the magnetic poles)\nField Strength is the magnetic field in nano tesla from\n\t20000 to 66000\n\nThe plotted lines are similar to a topographic map.  The space between them can be adjusted; more space takes less time to calculate.\n\nThe Step size and Pole accuracy sliders allow a trade off for speed vs computation time.\n\nThe World Magnetic Model Plugin was written by Pavel Kalian and extended by Sean D'Epagnier to support plotting."
-msgstr "\nWorld Magnetic Model Plotting permite a los usuarios a comprobar la referencia mostrada de desviación magnética en muchas de las cartas raster.\n\nLa Declinación es el ángulo entre el norte verdadero y el magnético.\nLa Inclinación es el ángulo vertical del campo magnético.\n\t(+- 90 en los polos magnéticos)\nLa Intensidad de Campo es el campo magnético en nano tesla de\n\t20000 a 66000\n\nLas líneas dibujadas son similares a un mapa topográfico. El espacio entre ellas puede ser ajustado; a más espacio menos tiempo empleado en cálculos.\n\nLos controles deslizantes para tamaño de Paso y Precisión en Polo le permiten controlar los tiempos empleados en cálculos de ordenador.\n\nEl Plugin del Modelo de Magnetismo Mundial ha sido escrito por Pavel Kalian y ampliado por Sean D'Epagnier para permitir las gráficas."
+msgstr "\n\nEl trazado del Modelo de Magnetismo Mundial permite a los usuarios comprobar las referencias mostradas en muchas de las cartas raster de las desviaciones magnéticas.\n\n\n\nLa Declinación es el ángulo entre el norte verdadero y el magnético.\n\nLa Inclinación es el ángulo vertical del campo magnético.\n\n\t(+- 90 en los polos magnéticos)\n\nLa Intensidad de Campo es el campo magnético en nano tesla de\n\n\t20000 a 66000\n\n\n\nLas líneas dibujadas son similares a un mapa topográfico. El espacio entre ellas puede ser ajustado; a más espacio menos tiempo empleado en cálculos.\n\n\n\nLos controles deslizantes para tamaño de Paso y Precisión en Polo le permiten controlar los tiempos empleados en cálculos de ordenador.\n\n\n\nEl Plugin del Modelo de Magnetismo Mundial ha sido escrito por Pavel Kalian y ampliado por Sean D'Epagnier para permitir las gráficas."
 
 #: src/wmm_pi.cpp:90
 msgid "WMM Plugin"
@@ -130,11 +132,11 @@ msgstr "(DIP) - Inclinación geomagnética"
 
 #: src/WmmUIDialog.cpp:96 src/WmmUIDialog.cpp:192
 msgid "Vari"
-msgstr "Vari"
+msgstr "Decli"
 
 #: src/WmmUIDialog.cpp:98 src/WmmUIDialog.cpp:194
 msgid "Magnetic Variation"
-msgstr "Variación Magnética"
+msgstr "Declinación Magnética"
 
 #: src/WmmUIDialog.cpp:115
 msgid "Cursor"
@@ -154,7 +156,7 @@ msgstr "Extendida"
 
 #: src/WmmUIDialog.cpp:256
 msgid "Variation only"
-msgstr "Variación sólo"
+msgstr "Declinación sólo"
 
 #: src/WmmUIDialog.cpp:258
 msgid "View"
@@ -214,7 +216,7 @@ msgstr "Cancelar"
 
 #: src/MagneticPlotMap.cpp:350
 msgid "Building Magnetic Map"
-msgstr "Building Magnetic Map"
+msgstr "Generando mapa magnetismo"
 
 #: src/MagneticPlotMap.cpp:445
 #, c-format
