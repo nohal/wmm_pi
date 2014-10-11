@@ -152,13 +152,12 @@ int wmm_pi::Init(void)
     /* Check for Geographic Poles */
     //WMM_readMagneticModel_Large(filename, MagneticModel); //Uncomment this line when using the 740 model, and comment out the  WMM_readMagneticModel line.
 
-    filename = m_wmm_dir + _T("WMM.COF");
-    char cstring[1024];
-    strncpy(cstring, (const char*)filename.mb_str(wxConvUTF8), 1023);
-    if (0 == WMM_readMagneticModel(cstring, MagneticModel))
+    filename = m_wmm_dir + _T("/WMM.COF");
+    wxCharBuffer buf = filename.ToUTF8();
+
+    if (0 == WMM_readMagneticModel(buf.data(), MagneticModel))
     {
-        WMMLogMessage1(_("model data file") + wxString(_T(": \""))
-                 + filename + wxString(_T("\" ")) + _("can't be loaded, using the bundled data."));
+        wxLogMessage(wxString::Format(_T("Warning: WMM model data file %s can't be loaded, using the bundled data."), buf.data()));
         WMM_setupMagneticModel(wmm_cof_data, MagneticModel);
     }
 
