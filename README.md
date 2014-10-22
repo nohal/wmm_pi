@@ -31,7 +31,8 @@ ln -s /usr/local/Cellar/gettext/0.19.2/bin/msgfmt /usr/local/bin/msgfmt
 
 To target older OS X versions than the one you are running, you need the respective SDKs installed. The easiest way to achieve that is using https://github.com/devernay/xcodelegacy
 
-Building wxWidgets (do not use wxmac from Homebrew, it is not compatible with OpenCPN)
+####Building wxWidgets
+(do not use wxmac from Homebrew, it is not compatible with OpenCPN)
 Get wxWidgets 3.0.x source from http://wxwidgets.org
 Configure, build and install
 ```
@@ -41,13 +42,13 @@ make
 sudo make install
 ```
 
-Building the plugin
+####Building the plugin
 Before running cmake, you must set the deployment target to OS X 10.7 to be compatible with the libraries used by core OpenCPN
 ```
 export MACOSX_DEPLOYMENT_TARGET=10.7
 ```
 
-Packaging on OS X
+####Packaging on OS X
 Get and install the Packages application from http://s.sudre.free.fr/Software/Packages/about.html
 ```
 make create-pkg
