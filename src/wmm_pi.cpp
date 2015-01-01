@@ -822,7 +822,7 @@ int WMM_setupMagneticModel(char *data, WMMtype_MagneticModel * MagneticModel)
     while (EOF_Flag == 0)
     {
         c_tmp = strtok(NULL, "\n");
-        strncpy(c_str, c_tmp, 81);
+        strncpy(c_str, c_tmp, 80);
         /* CHECK FOR LAST LINE IN FILE */
         for (i=0; i<4 && (c_str[i] != '\0'); i++)
         {
