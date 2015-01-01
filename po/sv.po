@@ -2,224 +2,192 @@ msgid ""
 msgstr ""
 "Project-Id-Version: opencpn\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-21 20:48-0600\n"
-"PO-Revision-Date: 2014-08-09 13:24-0400\n"
+"POT-Creation-Date: 2015-01-01 14:16-0600\n"
+"PO-Revision-Date: 2015-01-01 15:19-0500\n"
 "Last-Translator: nohal <pavel@kalian.cz>\n"
 "Language-Team: Swedish\n"
 "Language: sv_SE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: crowdin.net\n"
+"X-Generator: crowdin.com\n"
+"X-Crowdin-Project: opencpn\n"
+"X-Crowdin-File: /plugins/wmm_pi/po/wmm_pi.pot\n"
 
-#: src/wmm_pi.cpp:74
+#: src/wmm_pi.cpp:77
 msgid "\nWorld Magnetic Model Plotting allows users to cross reference the magnetic deviation values printed on many raster charts.\n\nDeclination is the angle between true and magnetic north.\nInclination is the vertical angle of the magnetic field.\n\t(+- 90 at the magnetic poles)\nField Strength is the magnetic field in nano tesla from\n\t20000 to 66000\n\nThe plotted lines are similar to a topographic map.  The space between them can be adjusted; more space takes less time to calculate.\n\nThe Step size and Pole accuracy sliders allow a trade off for speed vs computation time.\n\nThe World Magnetic Model Plugin was written by Pavel Kalian and extended by Sean D'Epagnier to support plotting."
-msgstr "\n\"World Magnetic Model\" plottning tillåter användaren att jämföra det värde för magnetisk avvikelse som är tryckt på många rasterkort. \n\nMissvisning är vinkeln mellan sann och magnetisk nord. \n\nInklination är den vertikala vinkeln av den magnetiska fältstyrkan. (+-90 på de magnetiska polerna) \nFältstyrka är magnetfältet uttryckt i nano tesla från 20000 till 66000\n\nDe ritade linjerna liknar en topografisk karta.  Utrymmet mellan dem kan ändras. Mer utrymme tar mindre tid att beräkna.\n\nReglagen för stegstorlek och polnoggrannhet möjliggör en balans mellan tid för beräkning och plottinghastighet.\n\nModulen \"World Magnetic Model\", WMM, skrevs av Pavel Kalian med tillägg av Sean D'Epagnier för att stödja plottning."
+msgstr "\nMed WMM går det att plotta ut modellen för jordens magnetfält och visa verkan av den magnetiska missvisning som anges på många tryckta sjökort. \n\nMissvisning är avvikelsen mellan sann och magnetisk nord. \nInklination är den vertikala vinkeln av den magnetiska fältstyrkan. (+-90 på de magnetiska polerna) \nFältstyrka är värdet på magnetfältet uttryckt i nanoTesla från 20000 till 66000\n\nDe ritade linjerna liknar en topografisk karta.  Avståndet mellan dem kan ändras. Mer avstånd tar mindre tid att beräkna och plottningen går fortare.\nMed reglagen för linjeavstånd och noggrannheten vid polerna går det att ställa in en lämplig balans mellan linjernas täthet och tiden det tar rita.\n\nModulen \"World Magnetic Model\", WMM, har utvecklats av Pavel Kalian och den grafiska plotten av Sean D'Epagnier."
 
-#: src/wmm_pi.cpp:90
+#: src/wmm_pi.cpp:93
 msgid "WMM Plugin"
 msgstr "WMM Modul"
 
-#: src/wmm_pi.cpp:172 src/wmm_pi.cpp:243 src/wmm_pi.h:67 src/WmmUIDialog.h:87
+#: src/wmm_pi.cpp:182 src/wmm_pi.cpp:253 src/WmmUIDialog.h:87
 msgid "WMM"
 msgstr "WMM"
 
-#: src/wmm_pi.cpp:249
+#: src/wmm_pi.cpp:259
 msgid "World Magnetic Model PlugIn for OpenCPN"
 msgstr "Modul till OpenCPN för att modellera jordens magnetfält"
 
-#: src/wmm_pi.cpp:254
-msgid "World Magnetic Model PlugIn for OpenCPN\nImplements the NOAA World Magnetic Model\nMore information: http://www.ngdc.noaa.gov/geomag/WMM/\nThe bundled WMM2010 model expires on December 31, 2014.\nAfter then, if new version of the plugin will not be released\nin time, get a new WMM.COF from NOAA and place it to the\nlocation you can find in the OpenCPN logfile."
-msgstr "Modulen \"World Magnetic Model\" för OpenCPN\nAnvänder \"NOAA World magnetiska Model\"\nMer information: http://www.ngdc.noaa.gov/geomag/WMM/ \nModellen WMM2010 löper ut den 31 December, 2014.\nOm det inte givits ut någon uppdatering av modulen innan dess\ngår det att hämta en ny fil, WMM.COF, från NOAA och spara på den\nplats som anges i OpenCPN loggfil."
+#: src/wmm_pi.cpp:264
+msgid "World Magnetic Model PlugIn for OpenCPN\nImplements the NOAA World Magnetic Model\nMore information: http://www.ngdc.noaa.gov/geomag/WMM/\nThe bundled WMM2015 model expires on December 31, 2019.\nAfter then, if new version of the plugin will not be released\nin time, get a new WMM.COF from NOAA and place it to the\nlocation you can find in the OpenCPN logfile."
+msgstr "Modulen \"World Magnetic Model\" för OpenCPN\nAnvänder \"NOAA World magnetiska Model\"\nMer information: http://www.ngdc.noaa.gov/geomag/WMM/ \nModellen WMM2015 löper ut den 31 December, 2019.\nOm det inte givits ut någon uppdatering av modulen innan dess\ngår det att hämta en ny fil, WMM.COF, från NOAA och spara på den\nplats som anges i OpenCPN loggfil."
 
-#: src/wmm_pi.cpp:401 src/wmm_pi.cpp:471
+#: src/wmm_pi.cpp:416 src/wmm_pi.cpp:486
 msgid "Error, see log."
 msgstr "Fel, se logg."
 
-#: src/wmm_pi.cpp:419 src/wmm_pi.cpp:420 src/wmm_pi.cpp:421 src/wmm_pi.cpp:422
-#: src/wmm_pi.cpp:423 src/wmm_pi.cpp:474 src/wmm_pi.cpp:475 src/wmm_pi.cpp:476
-#: src/wmm_pi.cpp:477 src/wmm_pi.cpp:478
-#, c-format
-msgid "%-9.1lf nT"
-msgstr "%-9.1lf nT"
-
-#: src/wmm_pi.cpp:424
-#, c-format
-msgid "%-5.1lf\\u00B0 (%s)"
-msgstr "%-5.1lf\\u00B0 (%s)"
-
-#: src/wmm_pi.cpp:425
-#, c-format
-msgid "%-5.1lf\\u00B0"
-msgstr "%-5.1lf\\u00B0"
-
-#: src/wmm_pi.cpp:451
-#, c-format
-msgid "%.1f"
-msgstr "%.1f"
-
-#: src/wmm_pi.cpp:606
-#, c-format
-msgid "%u\\u00B0%u' W"
-msgstr "%u\\u00B0%u' W"
-
-#: src/wmm_pi.cpp:608
-#, c-format
-msgid "%u\\u00B0%u' E"
-msgstr "%u\\u00B0%u' E"
-
-#: src/wmm_pi.cpp:695 src/WmmUIDialog.h:110
+#: src/wmm_pi.cpp:714 src/WmmUIDialog.h:111
 msgid "WMM Preferences"
 msgstr "WMM inställningar"
 
-#: src/wmm_pi.h:79 src/WmmUIDialog.h:150
+#: src/wmm_pi.h:78 src/WmmUIDialog.h:151
 msgid "Magnetic Plot Settings"
 msgstr "Inställningar för plottning"
 
-#: src/WmmUIDialog.cpp:19
+#: src/WmmUIDialog.cpp:26
 msgid "Boat"
 msgstr "Båt"
 
-#: src/WmmUIDialog.cpp:26 src/WmmUIDialog.cpp:122
+#: src/WmmUIDialog.cpp:33 src/WmmUIDialog.cpp:129
 msgid "F"
 msgstr "F"
 
-#: src/WmmUIDialog.cpp:28 src/WmmUIDialog.cpp:124
+#: src/WmmUIDialog.cpp:35 src/WmmUIDialog.cpp:131
 msgid "Total Intensity"
 msgstr "Total intensitet"
 
-#: src/WmmUIDialog.cpp:36 src/WmmUIDialog.cpp:132
+#: src/WmmUIDialog.cpp:43 src/WmmUIDialog.cpp:139
 msgid "H"
 msgstr "H"
 
-#: src/WmmUIDialog.cpp:38 src/WmmUIDialog.cpp:134
+#: src/WmmUIDialog.cpp:45 src/WmmUIDialog.cpp:141
 msgid "Horizontal Intensity"
 msgstr "Horisontal intensitet"
 
-#: src/WmmUIDialog.cpp:46 src/WmmUIDialog.cpp:142
+#: src/WmmUIDialog.cpp:53 src/WmmUIDialog.cpp:149
 msgid "X"
 msgstr "X"
 
-#: src/WmmUIDialog.cpp:48 src/WmmUIDialog.cpp:144
+#: src/WmmUIDialog.cpp:55 src/WmmUIDialog.cpp:151
 msgid "North Component"
 msgstr "Nordlig del"
 
-#: src/WmmUIDialog.cpp:56 src/WmmUIDialog.cpp:152
+#: src/WmmUIDialog.cpp:63 src/WmmUIDialog.cpp:159
 msgid "Y"
 msgstr "Y"
 
-#: src/WmmUIDialog.cpp:58 src/WmmUIDialog.cpp:154
+#: src/WmmUIDialog.cpp:65 src/WmmUIDialog.cpp:161
 msgid "East Component"
 msgstr "Östlig del"
 
-#: src/WmmUIDialog.cpp:66 src/WmmUIDialog.cpp:162
+#: src/WmmUIDialog.cpp:73 src/WmmUIDialog.cpp:169
 msgid "Z"
 msgstr "Z"
 
-#: src/WmmUIDialog.cpp:68 src/WmmUIDialog.cpp:164
+#: src/WmmUIDialog.cpp:75 src/WmmUIDialog.cpp:171
 msgid "Vertical Component"
 msgstr "Vertikal del"
 
-#: src/WmmUIDialog.cpp:76 src/WmmUIDialog.cpp:172
+#: src/WmmUIDialog.cpp:83 src/WmmUIDialog.cpp:179
 msgid "Incl"
 msgstr "Inkl"
 
-#: src/WmmUIDialog.cpp:78 src/WmmUIDialog.cpp:174
+#: src/WmmUIDialog.cpp:85 src/WmmUIDialog.cpp:181
 msgid "(DIP) - Geomagnetic Inclination "
 msgstr "(DIP) - Geomagnetisk inklination "
 
-#: src/WmmUIDialog.cpp:96 src/WmmUIDialog.cpp:192
+#: src/WmmUIDialog.cpp:103 src/WmmUIDialog.cpp:199
 msgid "Vari"
 msgstr "Missv"
 
-#: src/WmmUIDialog.cpp:98 src/WmmUIDialog.cpp:194
+#: src/WmmUIDialog.cpp:105 src/WmmUIDialog.cpp:201
 msgid "Magnetic Variation"
 msgstr "Magnetisk missvisning"
 
-#: src/WmmUIDialog.cpp:115
+#: src/WmmUIDialog.cpp:122
 msgid "Cursor"
 msgstr "Markör"
 
-#: src/WmmUIDialog.cpp:218
+#: src/WmmUIDialog.cpp:228
 msgid "enable plot"
 msgstr "Använd plotttning"
 
-#: src/WmmUIDialog.cpp:221
+#: src/WmmUIDialog.cpp:231
 msgid "Settings..."
 msgstr "Inställningar..."
 
-#: src/WmmUIDialog.cpp:256
+#: src/WmmUIDialog.cpp:266
 msgid "Extended"
 msgstr "Utökad"
 
-#: src/WmmUIDialog.cpp:256
+#: src/WmmUIDialog.cpp:266
 msgid "Variation only"
 msgstr "Endast missvisning"
 
-#: src/WmmUIDialog.cpp:258
+#: src/WmmUIDialog.cpp:268
 msgid "View"
 msgstr "Visa"
 
-#: src/WmmUIDialog.cpp:262
+#: src/WmmUIDialog.cpp:272
+msgid "Show Plot Options"
+msgstr "Visa Plottinställningar"
+
+#: src/WmmUIDialog.cpp:275
 msgid "Show also data at cursor position"
-msgstr "Visa också data på markörens position"
+msgstr "Visa också värden för markörens position"
 
-#: src/WmmUIDialog.cpp:265
+#: src/WmmUIDialog.cpp:278
 msgid "Show data in toolbar icon"
-msgstr "Visa data i verktygsradens ikon"
+msgstr "Visa avvikelsevärdet i verktygsradens ikon"
 
-#: src/WmmUIDialog.cpp:269
+#: src/WmmUIDialog.cpp:282
 msgid "Window transparency"
-msgstr "transparens"
+msgstr "Datarutans transparens"
 
-#: src/WmmUIDialog.cpp:305 src/MagneticPlotMap.cpp:351
+#: src/WmmUIDialog.cpp:318 src/MagneticPlotMap.cpp:352
 msgid "Declination"
 msgstr "Missvisning"
 
-#: src/WmmUIDialog.cpp:312 src/WmmUIDialog.cpp:322
+#: src/WmmUIDialog.cpp:325 src/WmmUIDialog.cpp:335
 msgid "Degrees"
 msgstr "Grader"
 
-#: src/WmmUIDialog.cpp:316 src/MagneticPlotMap.cpp:352
+#: src/WmmUIDialog.cpp:329 src/MagneticPlotMap.cpp:353
 msgid "Inclination"
 msgstr "Lutning/Inklination"
 
-#: src/WmmUIDialog.cpp:326 src/MagneticPlotMap.cpp:352
+#: src/WmmUIDialog.cpp:339 src/MagneticPlotMap.cpp:353
 msgid "Field Strength"
 msgstr "Fältstyrka"
 
-#: src/WmmUIDialog.cpp:332
+#: src/WmmUIDialog.cpp:345
 msgid "Nano Tesla"
 msgstr "NanoTesla"
 
-#: src/WmmUIDialog.cpp:342
+#: src/WmmUIDialog.cpp:355
 msgid "Step Size"
 msgstr "Stegstorlek"
 
-#: src/WmmUIDialog.cpp:353
+#: src/WmmUIDialog.cpp:366
 msgid "Pole Accuracy"
 msgstr "Polnoggrannhet"
 
-#: src/WmmUIDialog.cpp:357
+#: src/WmmUIDialog.cpp:370
 msgid "About"
 msgstr "Om"
 
-#: src/WmmUIDialog.cpp:360
+#: src/WmmUIDialog.cpp:373
 msgid "Save"
 msgstr "Spara"
 
-#: src/WmmUIDialog.cpp:363
+#: src/WmmUIDialog.cpp:376
 msgid "Cancel"
 msgstr "Avbryt"
 
-#: src/MagneticPlotMap.cpp:350
+#: src/MagneticPlotMap.cpp:351
 msgid "Building Magnetic Map"
 msgstr "Skapar magnetiska kartan"
-
-#: src/MagneticPlotMap.cpp:445
-#, c-format
-msgid "%.0f"
-msgstr "%.0f"
 
