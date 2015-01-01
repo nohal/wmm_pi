@@ -148,21 +148,24 @@ int wmm_pi::Init(void)
         m_buseable = false;
     }
 
-    WMM_SetDefaults(&Ellip, MagneticModel, &Geoid); /* Set default values and constants */
-    /* Check for Geographic Poles */
-    //WMM_readMagneticModel_Large(filename, MagneticModel); //Uncomment this line when using the 740 model, and comment out the  WMM_readMagneticModel line.
-
-    filename = m_wmm_dir + _T("/WMM.COF");
-    wxCharBuffer buf = filename.ToUTF8();
-
-    if (0 == WMM_readMagneticModel(buf.data(), MagneticModel))
+    if( m_buseable )
     {
-        wxLogMessage(wxString::Format(_T("Warning: WMM model data file %s can't be loaded, using the bundled data."), filename.c_str()));
-        WMM_setupMagneticModel(wmm_cof_data, MagneticModel);
-    }
-    else
-    {
-        wxLogMessage(wxString::Format(_T("WMM model data loaded from file %s."), filename.c_str()));
+        WMM_SetDefaults(&Ellip, MagneticModel, &Geoid); /* Set default values and constants */
+        /* Check for Geographic Poles */
+        //WMM_readMagneticModel_Large(filename, MagneticModel); //Uncomment this line when using the 740 model, and comment out the  WMM_readMagneticModel line.
+
+        filename = m_wmm_dir + _T("/WMM.COF");
+        wxCharBuffer buf = filename.ToUTF8();
+
+        if (0 == WMM_readMagneticModel(buf.data(), MagneticModel))
+        {
+            WMMLogMessage1(wxString::Format(_T("Warning: WMM model data file %s can't be loaded, using the bundled data."), filename.c_str()));
+            WMM_setupMagneticModel(wmm_cof_data, MagneticModel);
+        }
+        else
+        {
+            WMMLogMessage1(wxString::Format(_T("WMM model data loaded from file %s."), filename.c_str()));
+        }
     }
 
  //     filename = m_wmm_dir + _T("/EGM9615.BIN");
@@ -327,6 +330,8 @@ void wmm_pi::RearrangeWindow()
 
 void wmm_pi::OnToolbarToolCallback(int id)
 {
+    if( !m_buseable )
+        return;
     if(NULL == m_pWmmDialog)
     {
         m_pWmmDialog = new WmmUIDialog(*this, m_parent_window);
@@ -661,7 +666,8 @@ bool wmm_pi::LoadConfig(void)
         wxString s =wxFileName::GetPathSeparator();
         wxString def = *GetpSharedDataLocation() + _T("plugins")
             + s + _T("wmm_pi") + s + _T("data") + s;
-        pConf->Read ( _T ( "WMMDataLocation" ), &m_wmm_dir, def);
+        //pConf->Read ( _T ( "WMMDataLocation" ), &m_wmm_dir, def);
+        m_wmm_dir = def;
         return true;
     }
     else
