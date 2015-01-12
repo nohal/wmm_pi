@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: opencpn\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-01-01 14:16-0600\n"
-"PO-Revision-Date: 2015-01-01 15:19-0500\n"
+"PO-Revision-Date: 2015-01-06 18:28-0500\n"
 "Last-Translator: nohal <pavel@kalian.cz>\n"
 "Language-Team: Spanish\n"
 "Language: es_ES\n"
@@ -33,7 +33,7 @@ msgstr "Plugin Modelo de Magnetismo Mundial para OpenCPN"
 
 #: src/wmm_pi.cpp:264
 msgid "World Magnetic Model PlugIn for OpenCPN\nImplements the NOAA World Magnetic Model\nMore information: http://www.ngdc.noaa.gov/geomag/WMM/\nThe bundled WMM2015 model expires on December 31, 2019.\nAfter then, if new version of the plugin will not be released\nin time, get a new WMM.COF from NOAA and place it to the\nlocation you can find in the OpenCPN logfile."
-msgstr ""
+msgstr "Plugin del Modelo de Magnetismo Mundial para OpenCPN\nImplementa el Modelo de Magnetismo Mundial de la NOAA\nMás información en: http://www.ngdc.noaa.gov/geomag/WMM/\nEl paquete para el Modelo WMM2015 finaliza el 31 de diciembre de 2019.\nTras esa fecha, si no hay una nueva versión del plugin\na tiempo, coja un nuevo archivo WMM.COF de la NOAA y coloquelo\nen el sitio donde se encuentre el archivo log de OpenCPN."
 
 #: src/wmm_pi.cpp:416 src/wmm_pi.cpp:486
 msgid "Error, see log."
@@ -133,7 +133,7 @@ msgstr "Vista"
 
 #: src/WmmUIDialog.cpp:272
 msgid "Show Plot Options"
-msgstr ""
+msgstr "Opciones para mostrar dibujos"
 
 #: src/WmmUIDialog.cpp:275
 msgid "Show also data at cursor position"
