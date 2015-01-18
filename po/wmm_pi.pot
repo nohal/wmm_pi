@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: wmm_pi 0.99\n"
+"Project-Id-Version: wmm_pi 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-15 21:03-0600\n"
+"POT-Creation-Date: 2015-01-01 14:16-0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -43,15 +43,15 @@ msgstr ""
 msgid "WMM Plugin"
 msgstr ""
 
-#: src/wmm_pi.cpp:179 src/wmm_pi.cpp:250 src/WmmUIDialog.h:87
+#: src/wmm_pi.cpp:182 src/wmm_pi.cpp:253 src/WmmUIDialog.h:87
 msgid "WMM"
 msgstr ""
 
-#: src/wmm_pi.cpp:256
+#: src/wmm_pi.cpp:259
 msgid "World Magnetic Model PlugIn for OpenCPN"
 msgstr ""
 
-#: src/wmm_pi.cpp:261
+#: src/wmm_pi.cpp:264
 msgid ""
 "World Magnetic Model PlugIn for OpenCPN\n"
 "Implements the NOAA World Magnetic Model\n"
@@ -62,11 +62,11 @@ msgid ""
 "location you can find in the OpenCPN logfile."
 msgstr ""
 
-#: src/wmm_pi.cpp:411 src/wmm_pi.cpp:481
+#: src/wmm_pi.cpp:416 src/wmm_pi.cpp:486
 msgid "Error, see log."
 msgstr ""
 
-#: src/wmm_pi.cpp:708 src/WmmUIDialog.h:111
+#: src/wmm_pi.cpp:714 src/WmmUIDialog.h:111
 msgid "WMM Preferences"
 msgstr ""
 
