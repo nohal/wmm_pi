@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: opencpn\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-01-01 14:16-0600\n"
-"PO-Revision-Date: 2015-01-20 17:00-0500\n"
+"PO-Revision-Date: 2015-02-03 17:08-0500\n"
 "Last-Translator: nohal <pavel@kalian.cz>\n"
 "Language-Team: Danish\n"
 "Language: da_DK\n"
@@ -17,7 +17,7 @@ msgstr ""
 
 #: src/wmm_pi.cpp:77
 msgid "\nWorld Magnetic Model Plotting allows users to cross reference the magnetic deviation values printed on many raster charts.\n\nDeclination is the angle between true and magnetic north.\nInclination is the vertical angle of the magnetic field.\n\t(+- 90 at the magnetic poles)\nField Strength is the magnetic field in nano tesla from\n\t20000 to 66000\n\nThe plotted lines are similar to a topographic map.  The space between them can be adjusted; more space takes less time to calculate.\n\nThe Step size and Pole accuracy sliders allow a trade off for speed vs computation time.\n\nThe World Magnetic Model Plugin was written by Pavel Kalian and extended by Sean D'Epagnier to support plotting."
-msgstr "\nWorld Magnetic Model Plotting  giver mulighed for at krydsreferere værdier for misvisning trykt på mange raster kort.\n\nMisvisningen er vinklen mellem sand og magnetisk nord. \nMisvisning er den lodrette vinkel af jordens magnetiske felt.\n\t (+-90 på de magnetiske poler) \nFeltstyrken er det magnetiske felt i nano Tesla from\n\t20000 66000\n\nDe afbildede linjer ligner et Topografisk kort.  Afstanden mellem dem kan justeres; mere plads tager mindre tid til beregningen.\n\nTrin størrelse og Pol-nøjagtigheds-skydere tillader en balance mellem hastighed vs beregningstid.\n\nWorld Magnetic  Model Plugin blev skrevet af Pavel Kalian og udvidet af Sean D'Epagnier til brug for plotning."
+msgstr "\nWorld Magnetic Model Plotting  giver mulighed for at krydsreferere værdier for misvisning trykt på mange raster kort.\n\nMisvisningen er vinklen mellem retvisende og magnetisk nord. \nMisvisning er den lodrette vinkel af jordens magnetiske felt.\n\t (+-90 på de magnetiske poler) \nFeltstyrken er det magnetiske felt i nanotesla fra\n\t20000 til 66000\n\nDe afbildede linjer ligner et topografisk kort.  Afstanden mellem dem kan justeres; mere plads tager mindre tid til beregningen.\n\nTrinstørrelse og Pol-nøjagtigheds-skydere tillader en balance mellem hastighed og beregningstid.\n\nWorld Magnetic  Model Plugin blev skrevet af Pavel Kalian og udvidet af Sean D'Epagnier til brug for plotning."
 
 #: src/wmm_pi.cpp:93
 msgid "WMM Plugin"
@@ -73,7 +73,7 @@ msgstr "X"
 
 #: src/WmmUIDialog.cpp:55 src/WmmUIDialog.cpp:151
 msgid "North Component"
-msgstr "Nord komponent"
+msgstr "Nordlig komponent"
 
 #: src/WmmUIDialog.cpp:63 src/WmmUIDialog.cpp:159
 msgid "Y"
@@ -81,7 +81,7 @@ msgstr "Y"
 
 #: src/WmmUIDialog.cpp:65 src/WmmUIDialog.cpp:161
 msgid "East Component"
-msgstr "Øst komponent"
+msgstr "Østlig komponent"
 
 #: src/WmmUIDialog.cpp:73 src/WmmUIDialog.cpp:169
 msgid "Z"
@@ -93,7 +93,7 @@ msgstr "Vertikal komponent"
 
 #: src/WmmUIDialog.cpp:83 src/WmmUIDialog.cpp:179
 msgid "Incl"
-msgstr "Incl"
+msgstr "Inkl"
 
 #: src/WmmUIDialog.cpp:85 src/WmmUIDialog.cpp:181
 msgid "(DIP) - Geomagnetic Inclination "
@@ -157,7 +157,7 @@ msgstr "Grader"
 
 #: src/WmmUIDialog.cpp:329 src/MagneticPlotMap.cpp:353
 msgid "Inclination"
-msgstr "Inclination"
+msgstr "Inklination"
 
 #: src/WmmUIDialog.cpp:339 src/MagneticPlotMap.cpp:353
 msgid "Field Strength"
@@ -165,11 +165,11 @@ msgstr "Feltstyrke"
 
 #: src/WmmUIDialog.cpp:345
 msgid "Nano Tesla"
-msgstr "Nano Tesla"
+msgstr "Nanotesla"
 
 #: src/WmmUIDialog.cpp:355
 msgid "Step Size"
-msgstr "Trin størrelse"
+msgstr "Trinstørrelse"
 
 #: src/WmmUIDialog.cpp:366
 msgid "Pole Accuracy"
@@ -181,7 +181,7 @@ msgstr "Om"
 
 #: src/WmmUIDialog.cpp:373
 msgid "Save"
-msgstr "gem"
+msgstr "Gem"
 
 #: src/WmmUIDialog.cpp:376
 msgid "Cancel"
@@ -189,5 +189,5 @@ msgstr "Annullér"
 
 #: src/MagneticPlotMap.cpp:351
 msgid "Building Magnetic Map"
-msgstr "Dan magnetisk kort"
+msgstr "Etablerer magnetisk kort"
 
