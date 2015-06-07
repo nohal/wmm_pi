@@ -15,7 +15,7 @@ git clone git://github.com/nohal/wmm_pi.git
 ```
 mkdir wmm_pi/build
 cd wmm_pi/build
-cmake ..
+cmake .. # To produce a binary compatible with Windows XP, you must set the respective toolset - use 'cmake -T v120_xp ..'
 cmake --build .
 ```
 
